@@ -1,4 +1,4 @@
-# Ecommerce AI Ads & Analytics
+# Partner Revenue Labs
 
 Affiliate site focused on **e-commerce brands using AI in ads and analytics**.
 

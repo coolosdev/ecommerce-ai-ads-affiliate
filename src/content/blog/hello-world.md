@@ -3,6 +3,7 @@ title: AI Automation for Solo Founders
 description: The 5 AI tools that gave me back 20 hours/week and how you can use them too.
 tags: [AI, automation, solo-founders]
 featured: true
+heroImage: https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80
 pubDate: 2026-01-15
 ---
 

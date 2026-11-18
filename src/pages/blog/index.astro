@@ -20,7 +20,7 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
     </section>
 
     {featured ? (
-      <section class="featured-banner">
+      <section class="featured-banner" style={featured.data.heroImage ? `background-image: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(16,185,129,0.75)), url('${featured.data.heroImage}'); background-size: cover; background-position: center;` : ""}>
         <a href={`/blog/${featured.slug}`} class="featured-link">
           <div class="featured-badge">Featured</div>
           <h2>{featured.data.title}</h2>
@@ -39,6 +39,11 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
         {rest.map((post) => (
           <article class="post-card" key={post.slug}>
             <div class="post-card-accent"></div>
+            {post.data.heroImage && (
+              <div class="post-card-image">
+                <img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
+              </div>
+            )}
             <div class="post-card-body">
               <div class="post-card-top">
                 <time>{post.data.pubDate.toDateString()}</time>
@@ -89,16 +94,15 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
     max-width: 900px;
     position: relative;
     z-index: 2;
+    border-radius: var(--radius);
+    overflow: hidden;
   }
 
   .featured-link {
     display: block;
-    background: linear-gradient(135deg, var(--accent), #059669);
     color: #ffffff;
     text-decoration: none;
     padding: 2rem;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
     transition: transform 0.2s, box-shadow 0.2s;
   }
 
@@ -185,6 +189,25 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
     width: 4px;
     background: linear-gradient(180deg, var(--accent), #3b82f6);
     flex-shrink: 0;
+  }
+
+  .post-card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .post-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .post-card:hover .post-card-image img {
+    transform: scale(1.05);
   }
 
   .post-card-body {

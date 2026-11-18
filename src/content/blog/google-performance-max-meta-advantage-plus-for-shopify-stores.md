@@ -3,6 +3,7 @@ title: Google Performance Max + Meta Advantage+ for Shopify Stores
 description: A deep dive into integrating Google Performance Max (GDN) and Meta Advantage+ for Shopify stores – targeting, budgets, setup, tracking, and ROI optimization.
 tags: [Google, Meta, Shopify, Performance Max, Advantage+, Ads]
 featured: true
+heroImage: https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80
 pubDate: 2026-01-20
 ---
 

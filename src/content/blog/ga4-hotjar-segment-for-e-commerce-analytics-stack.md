@@ -1,9 +1,10 @@
 ---
 title: GA4 + Hotjar + Segment for E-commerce Analytics Stack
-description: A comparison of GA4, Hotjar, and Segment for Shopify analytics – tracking customer behavior, gathering qualitative feedback, and routing data to downstream tools.
-tags: [GA4, Hotjar, Segment, Analytics, Shopify, E-commerce]
+description: Build a modern e-commerce analytics stack with Google Analytics 4, Hotjar, and Segment — what each tool does and how to wire them together.
+tags: [GA4, Hotjar, Segment, Analytics, Stack, Ecommerce]
 featured: false
-pubDate: 2026-02-10
+heroImage: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
+pubDate: 2026-02-08
 ---
 
 # GA4 + Hotjar + Segment for E-commerce Analytics Stack

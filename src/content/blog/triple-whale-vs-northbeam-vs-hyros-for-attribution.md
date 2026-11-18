@@ -1,8 +1,9 @@
 ---
 title: Triple Whale vs Northbeam vs Hyros for Attribution
-description: A comparison of Triple Whale, Northbeam, and Hyros for Shopify attribution – which tool is right for your store and budget.
-tags: [Triple Whale, Northbeam, Hyros, Attribution, Shopify, Analytics]
+description: Compare Triple Whale, Northbeam, and Hyros — which attribution platform gives you the clearest picture of marketing ROI?
+tags: [Triple Whale, Northbeam, Hyros, Attribution, Analytics, ROI]
 featured: false
+heroImage: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80
 pubDate: 2026-02-01
 ---
 

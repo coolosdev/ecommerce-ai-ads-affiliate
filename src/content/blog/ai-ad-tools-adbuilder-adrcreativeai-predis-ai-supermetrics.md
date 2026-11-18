@@ -3,6 +3,7 @@ title: "AI Ad Tools: AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics"
 description: A comparison of four leading AI ad tools – AdBuilder.ai, AdCreative.ai, Predis.ai, and Supermetrics – for Shopify stores, ecommerce brands, and marketers.
 tags: [AI, AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics, Ads, Shopify]
 featured: false
+heroImage: https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80
 pubDate: 2026-02-05
 ---
 

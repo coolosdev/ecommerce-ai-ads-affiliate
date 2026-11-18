@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const title = "Ecommerce AI Ads & Analytics";
+const title = "Partner Revenue Labs";
 const description = "AI-powered advertising and analytics tools for ecommerce brands.";
 const canonical = "https://yourdomain.com/";
 
@@ -16,8 +16,8 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
   <div class="container">
     <section class="hero">
       <div class="hero-content">
-        <h1>AI-Powered Ecommerce Ads &amp; Analytics</h1>
-        <p class="hero-subtitle">Actionable guides and tools for ecommerce brands using AI in ads and analytics.</p>
+        <h1>Partner Revenue Labs</h1>
+        <p class="hero-subtitle">Revenue-focused guides and tools for ecommerce brands using AI in ads and analytics.</p>
         <div class="hero-ctas">
           <a href="/blog" class="cta-primary">Explore Our Guides</a>
           <a href="/contact" class="cta-secondary">Get in Touch</a>
@@ -48,7 +48,11 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
         <article class="featured-card">
           <div class="featured-image">
             <span class="featured-tag">Featured</span>
-            <div class="image-placeholder">🚀</div>
+            {featured.data.heroImage ? (
+              <img src={featured.data.heroImage} alt={featured.data.title} loading="eager" class="featured-img" />
+            ) : (
+              <div class="image-placeholder">🚀</div>
+            )}
           </div>
           <div class="featured-content">
             <h3><a href={`/blog/${featured.slug}`}>{featured.data.title}</a></h3>
@@ -78,9 +82,13 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
           {recent.slice(0, 6).map((post) => (
             <article class="post-card" key={post.slug}>
               <div class="post-card-image">
-                <div class="image-placeholder-sm">
-                  {post.data.tags?.[0]?.charAt(0)?.toUpperCase() || '📝'}
-                </div>
+                {post.data.heroImage ? (
+                  <img src={post.data.heroImage} alt={post.data.title} loading="lazy" class="post-card-img" />
+                ) : (
+                  <div class="image-placeholder-sm">
+                    {post.data.tags?.[0]?.charAt(0)?.toUpperCase() || '📝'}
+                  </div>
+                )}
               </div>
               <div class="post-card-content">
                 <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
@@ -244,6 +252,13 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
     overflow: hidden;
   }
 
+  .featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   .featured-tag {
     position: absolute;
     top: 1rem;
@@ -382,6 +397,19 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+
+  .post-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .post-card:hover .post-card-img {
+    transform: scale(1.05);
   }
 
   .image-placeholder-sm {

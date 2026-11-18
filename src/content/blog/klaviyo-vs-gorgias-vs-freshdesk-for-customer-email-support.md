@@ -1,8 +1,9 @@
 ---
 title: Klaviyo vs Gorgias vs Freshdesk for Customer Email/Support
-description: A comparison of Klaviyo, Gorgias, and Freshdesk for Shopify stores – email marketing, customer support, and when to choose which tool.
-tags: [Klaviyo, Gorgias, Freshdesk, Shopify, Customer Support, Email Marketing]
+description: "Klaviyo vs Gorgias vs Freshdesk: which tool is right for your ecommerce brand's customer email and support operations?"
+tags: [Klaviyo, Gorgias, Freshdesk, Email, Support, Customer]
 featured: false
+heroImage: https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80
 pubDate: 2026-01-25
 ---
 

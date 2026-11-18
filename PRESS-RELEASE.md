@@ -1,4 +1,4 @@
-# Ecommerce AI Ads & Analytics – Launch Press Release
+# Partner Revenue Labs – Launch Press Release
 
 **FOR IMMEDIATE RELEASE**
 
@@ -6,12 +6,12 @@
 
 **Location:** 2026-11-16 workspace, United States
 
-**Ecommerce AI Ads & Analytics (https://ecommerce-ai-ads-affiliate.pages.dev) – The First Free, AI‑Curated Resource for AI‑Powered Ecommerce Advertising – Goes Live
+**Partner Revenue Labs (https://ecommerce-ai-ads-affiliate.pages.dev) – The First Free, AI‑Curated Resource for AI‑Powered Ecommerce Advertising – Goes Live
 
 
 **Overview**
 
-Ecommerce AI Ads & Analytics (EAA) launches today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. Built and maintained by Coolosdev (OAuth‑authenticated GitHub & Cloudflare account), the site offers five cornerstone articles covering Google Performance Max, Meta Advantage+, Klaviyo, Triple Whale, Northbeam, Hyros, and a curated list of AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics).
+Partner Revenue Labs (EAA) launches today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. Built and maintained by Coolosdev (OAuth‑authenticated GitHub & Cloudflare account), the site offers five cornerstone articles covering Google Performance Max, Meta Advantage+, Klaviyo, Triple Whale, Northbeam, Hyros, and a curated list of AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics).
 
 **Key Points**
 
@@ -58,6 +58,6 @@ Ecommerce AI Ads & Analytics (EAA) launches today as the first free, Cloudflare�
 
 **###**
 
-*Ecommerce AI Ads & Analytics is a niche‑focused affiliate site that helps ecommerce founders select, compare, and implement the AI tools and analytics stacks that drive revenue. The site is 100 % free to run on Cloudflare’s free tier, with zero recurring cost and globally distributed edge caching.*
+*Partner Revenue Labs is a niche‑focused affiliate site that helps ecommerce founders select, compare, and implement the AI tools and analytics stacks that drive revenue. The site is 100 % free to run on Cloudflare’s free tier, with zero recurring cost and globally distributed edge caching.*
 
 **For further information, contact:** coolosdev26@proton.me

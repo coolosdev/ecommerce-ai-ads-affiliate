@@ -1,8 +1,8 @@
-# Ecommerce AI Ads & Analytics — Media Kit
+# Partner Revenue Labs — Media Kit
 
 ## 1. Executive Summary
 
-- **Brand name**: Ecommerce AI Ads & Analytics
+- **Brand name**: Partner Revenue Labs
 - **Tagline**: Actionable guides and tools for ecommerce brands using AI in ads and analytics.
 - **Mission**: Help ecommerce founders reclaim time and grow revenue by surfacing the AI tools, affiliate programs, and analytics stacks that actually move the needle.
 - **Target niche**: Shopify / DTC brands using AI in ads (Performance Max, Meta Advantage+) and analytics (Triple Whale, Northbeam, Hyros) who need credible affiliate/partner recommendations.
@@ -85,9 +85,9 @@
 ```
 FOR IMMEDIATE RELEASE
 
-Ecommerce AI Ads & Analytics Launches – The First Curated Resource for AI‑Powered Ecommerce Advertising
+Partner Revenue Labs Launches – The First Curated Resource for AI‑Powered Ecommerce Advertising
 
-[City, Date] – Ecommerce AI Ads & Analytics (https://ecommerce-ai-ads-affiliate.pages.dev) goes live today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. 
+[City, Date] – Partner Revenue Labs (https://ecommerce-ai-ads-affiliate.pages.dev) goes live today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. 
 
 Built and maintained by Coolosdev (OAuth‑authenticated GitHub & Cloudflare account), the site offers five cornerstone articles covering Google Performance Max, Meta Advantage+, Klaviyo, Triple Whale, Northbeam, Hyros, and a curated list of AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics). All content is static‑hosted on Cloudflare Pages for $0/month, with a roadmap to a free AI‑ad ROI calculator and a quarterly “State of AI in E‑commerce Ads” benchmark report.
 
@@ -99,9 +99,9 @@ Media contacts:
 - Cloudflare account ID: 41d04827c085112d57a6ae3271ca1153
 - GitHub: https://github.com/coolosdev
 
-### About Ecommerce AI Ads & Analytics
+### About Partner Revenue Labs
 
-Ecommerce AI Ads & Analytics is a niche‑focused affiliate‑and‑resource site that helps ecommerce founders select, compare, and implement the AI tools and analytics stacks that drive revenue. The site is 100 % free to run on Cloudflare’s free tier, with zero recurring cost and globally distributed edge caching.
+Partner Revenue Labs is a niche‑focused affiliate‑and‑resource site that helps ecommerce founders select, compare, and implement the AI tools and analytics stacks that drive revenue. The site is 100 % free to run on Cloudflare’s free tier, with zero recurring cost and globally distributed edge caching.
 
 ### ###
 
