@@ -13,63 +13,412 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
-  <section class="hero">
-    <h1>Ecommerce AI Ads & Analytics</h1>
-    <p>Actionable guides and tools for ecommerce brands using AI in ads and analytics.</p>
-    <a href="/blog" class="cta-button">Read Our Guides</a>
-  </section>
-
-  {featured ? (
-    <section class="featured">
-      <h2>Featured Article</h2>
-      <article>
-        <h3><a href={`/blog/${featured.slug}`}>{featured.data.title}</a></h3>
-        <p>{featured.data.description}</p>
-        <time>{featured.data.pubDate.toDateString()}</time>
-      </article>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>AI-Powered Ecommerce Ads &amp; Analytics</h1>
+        <p class="hero-subtitle">Actionable guides and tools for ecommerce brands using AI in ads and analytics.</p>
+        <div class="hero-ctas">
+          <a href="/blog" class="cta-primary">Explore Our Guides</a>
+          <a href="/contact" class="cta-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-card">
+          <div class="visual-icon">🚀</div>
+          <h3>AI-Powered</h3>
+          <p>Smarter ads, better ROI</p>
+        </div>
+        <div class="visual-card">
+          <div class="visual-icon">📊</div>
+          <h3>Data-Driven</h3>
+          <p>Insights that matter</p>
+        </div>
+        <div class="visual-card">
+          <div class="visual-icon">⚡</div>
+          <h3>Fast Setup</h3>
+          <p>Launch in minutes</p>
+        </div>
+      </div>
     </section>
-  ) : null}
 
-  {recent.length > 0 && (
-    <section class="recent">
-      <h2>Recent Guides</h2>
-      <ul>
-        {recent.map((post) => (
-          <li key={post.slug}>
-            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-            <time>{post.data.pubDate.toDateString()}</time>
-          </li>
-        ))}
-      </ul>
-    </section>
-  )}
+    {featured ? (
+      <section class="featured-section">
+        <h2>Featured Article</h2>
+        <article class="featured-card">
+          <div class="featured-image">
+            <span class="featured-tag">Featured</span>
+            <div class="image-placeholder">🚀</div>
+          </div>
+          <div class="featured-content">
+            <h3><a href={`/blog/${featured.slug}`}>{featured.data.title}</a></h3>
+            <p>{featured.data.description}</p>
+            <div class="featured-meta">
+              <time>{featured.data.pubDate.toDateString()}</time>
+              {featured.data.tags && featured.data.tags.length > 0 && (
+                <span class="tags">
+                  {featured.data.tags.slice(0, 3).map((tag: string) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </span>
+              )}
+            </div>
+          </div>
+        </article>
+      </section>
+    ) : null}
+
+    {recent.length > 0 && (
+      <section class="recent-section">
+        <div class="section-header">
+          <h2>Recent Guides</h2>
+          <a href="/blog" class="view-all">View All →</a>
+        </div>
+        <div class="recent-grid">
+          {recent.slice(0, 6).map((post) => (
+            <article class="post-card" key={post.slug}>
+              <div class="post-card-image">
+                <div class="image-placeholder-sm">
+                  {post.data.tags?.[0]?.charAt(0)?.toUpperCase() || '📝'}
+                </div>
+              </div>
+              <div class="post-card-content">
+                <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
+                <p>{post.data.description?.slice(0, 100)}...</p>
+                <time>{post.data.pubDate.toDateString()}</time>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
 </BaseLayout>
 
 <style>
-  .hero {
-    background: linear-gradient(135deg, #1e293b, #475569);
-    color: #fff;
-    padding: 4rem 1rem;
-    text-align: center;
-    border-radius: 1rem;
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
   }
-  .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-  .hero p { font-size: 1.125rem; margin-bottom: 1.5rem; opacity: 0.95; }
-  .cta-button {
-    display: inline-block;
-    background: #2563eb;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
+
+  /* Hero Section */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 0;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary {
+    background: var(--primary);
+    color: var(--foreground);
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius);
     text-decoration: none;
     font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-md);
   }
-  .cta-button:hover { background: #1d4ed8; }
-  .featured, .recent { margin-top: 3rem; }
-  .featured h2, .recent h2 { font-size: 1.5rem; margin-bottom: 1rem; }
-  .featured a, .recent a { color: #2563eb; text-decoration: none; font-weight: 600; }
-  .featured a:hover, .recent a:hover { text-decoration: underline; }
-  .featured time, .recent time { font-size: 0.875rem; color: #6b7280; }
-  .recent li { margin-bottom: 0.5rem; }
-  .recent time { margin-left: 0.5rem; }
+
+  .cta-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cta-secondary {
+    color: var(--primary);
+    padding: 0.875rem 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .cta-secondary:hover {
+    background: var(--primary);
+    color: var(--foreground);
+  }
+
+  .hero-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .visual-card {
+    background: var(--primary);
+    color: var(--foreground);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .visual-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .visual-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .visual-card p {
+    font-size: 0.875rem;
+    opacity: 0.75;
+  }
+
+  /* Featured Section */
+  .featured-section {
+    padding: 3rem 0;
+  }
+
+  .featured-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+
+  @media (min-width: 768px) {
+    .featured-card {
+      grid-template-columns: 2fr 3fr;
+    }
+  }
+
+  .featured-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .featured-image {
+    background: var(--primary);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--accent);
+    color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .image-placeholder {
+    font-size: 4rem;
+    opacity: 0.3;
+  }
+
+  .featured-content {
+    padding: 2rem;
+  }
+
+  .featured-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .featured-content h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .featured-content h3 a:hover {
+    color: var(--accent);
+  }
+
+  .featured-content p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .featured-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: #f1f5f9;
+    color: var(--primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* Recent Section */
+  .recent-section {
+    padding: 3rem 0;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .view-all {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+
+  .view-all:hover {
+    color: var(--accent-hover);
+  }
+
+  .recent-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .recent-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .recent-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .post-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .post-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .post-card-image {
+    height: 160px;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-placeholder-sm {
+    font-size: 3rem;
+    opacity: 0.3;
+  }
+
+  .post-card-content {
+    padding: 1.25rem;
+  }
+
+  .post-card-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .post-card-content h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post-card-content h3 a:hover {
+    color: var(--accent);
+  }
+
+  .post-card-content p {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-card-content time {
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
 </style>

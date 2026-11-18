@@ -1,0 +1,129 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Contact";
+const description = "Get in touch with Ecommerce AI Ads & Analytics. Media inquiries, partnerships, or general feedback.";
+const canonical = "https://yourdomain.com/contact";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="container">
+    <section class="contact-section">
+      <h1>Get in Touch</h1>
+      <p class="intro">We'd love to hear from you. Whether you have a question about one of our guides, want to discuss a partnership, or have a media inquiry.</p>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <h2>Media Inquiries</h2>
+          <p>For press, sponsorship, or editorial partnership opportunities, reach out to our team.</p>
+          <a href="mailto:hello@yourdomain.com" class="cta-primary">Media Email</a>
+        </div>
+        <div class="contact-card">
+          <h2>General Feedback</h2>
+          <p>Questions about our guides or tools? We'd love to hear your thoughts.</p>
+          <a href="mailto:hello@yourdomain.com" class="cta-primary">Email Us</a>
+        </div>
+      </div>
+
+      <div class="social-section">
+        <h2>Follow Our Work</h2>
+        <div class="social-links">
+          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" class="social-link">Twitter / X</a>
+          <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" class="social-link">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .contact-section {
+    padding: 4rem 0;
+  }
+
+  .contact-section h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    font-size: 1.125rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .contact-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .contact-card h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-card p {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-section {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+  }
+
+  .social-section h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .social-link:hover {
+    color: var(--accent-hover);
+  }
+</style>
