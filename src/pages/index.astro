@@ -1,8 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
 const title = "Ecommerce AI Ads & Analytics";
 const description = "AI-powered advertising and analytics tools for ecommerce brands.";
 const canonical = "https://yourdomain.com/";
+
+const posts = await getCollection("blog");
+const sorted = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const featured = sorted.find((p) => p.data.featured) ?? sorted[0];
+const recent = sorted.filter((p) => p.slug !== featured?.slug);
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
@@ -12,21 +19,30 @@ const canonical = "https://yourdomain.com/";
     <a href="/blog" class="cta-button">Read Our Guides</a>
   </section>
 
-  <section class="featured">
-    <h2>Featured Article</h2>
-    <article>
-      <h3><a href="/blog/hello-world">AI Automation for Solo Founders</a></h3>
-      <p>The 5 AI tools that gave me back 20 hours/week and how you can use them too.</p>
-      <time>Jan 15, 2026</time>
-    </article>
-  </section>
+  {featured ? (
+    <section class="featured">
+      <h2>Featured Article</h2>
+      <article>
+        <h3><a href={`/blog/${featured.slug}`}>{featured.data.title}</a></h3>
+        <p>{featured.data.description}</p>
+        <time>{featured.data.pubDate.toDateString()}</time>
+      </article>
+    </section>
+  ) : null}
 
-  <section class="recent">
-    <h2>Recent Guides</h2>
-    <ul>
-      <li><a href="/blog/hello-world">AI Automation for Solo Founders</a></li>
-    </ul>
-  </section>
+  {recent.length > 0 && (
+    <section class="recent">
+      <h2>Recent Guides</h2>
+      <ul>
+        {recent.map((post) => (
+          <li key={post.slug}>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+            <time>{post.data.pubDate.toDateString()}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
@@ -54,4 +70,6 @@ const canonical = "https://yourdomain.com/";
   .featured a, .recent a { color: #2563eb; text-decoration: none; font-weight: 600; }
   .featured a:hover, .recent a:hover { text-decoration: underline; }
   .featured time, .recent time { font-size: 0.875rem; color: #6b7280; }
+  .recent li { margin-bottom: 0.5rem; }
+  .recent time { margin-left: 0.5rem; }
 </style>

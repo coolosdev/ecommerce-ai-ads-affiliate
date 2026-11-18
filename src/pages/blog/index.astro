@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const title = "Blog — Ecommerce AI Ads & Analytics";
+const description = "Guides and tools for ecommerce brands using AI in ads and analytics.";
+const canonical = "https://yourdomain.com/blog";
+
+const posts = await getCollection("blog");
+const sorted = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="blog-header">
+    <h1>Blog</h1>
+    <p>Actionable guides and tools for ecommerce brands using AI in ads and analytics.</p>
+  </section>
+
+  <section class="blog-list">
+    <ul>
+      {sorted.map((post) => (
+        <li key={post.slug}>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <p>{post.data.description}</p>
+          <time>{post.data.pubDate.toDateString()}</time>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-header {
+    background: linear-gradient(135deg, #1e293b, #475569);
+    color: #fff;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  .blog-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  .blog-header p { opacity: 0.95; }
+  .blog-list { margin-top: 2rem; }
+  .blog-list ul { list-style: none; padding: 0; margin: 0; }
+  .blog-list li {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  .blog-list li:hover { border-color: #2563eb; }
+  .blog-list a { color: #111; text-decoration: none; font-weight: 600; font-size: 1.25rem; }
+  .blog-list a:hover { color: #2563eb; }
+  .blog-list p { color: #4b5563; margin: 0.5rem 0; }
+  .blog-list time { color: #6b7280; font-size: 0.875rem; }
+</style>
