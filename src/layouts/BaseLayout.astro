@@ -66,18 +66,23 @@ const {
 
 <style>
   :root {
+    --background: #020617;
+    --surface: #0f172a;
+    --surface-elev: #1e293b;
+    --border: #334155;
+    --border-hover: #475569;
+    --text: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --muted: #64748b;
     --primary: #0f172a;
     --secondary: #1e293b;
     --accent: #10b981;
     --accent-hover: #059669;
     --brand-red: #d42b2b;
-    --muted: #64748b;
-    --foreground: #f1f5f9;
-    --border: #e2e8f0;
     --radius: 0.75rem;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   }
 
   * {
@@ -93,20 +98,20 @@ const {
   body {
     font-family: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: var(--primary);
-    background: #ffffff;
+    color: var(--text);
+    background: var(--background);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
   .site-header {
-    background: var(--primary);
+    background: rgba(2, 6, 23, 0.85);
     border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 50;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
   }
 
   .header-inner {
@@ -123,7 +128,6 @@ const {
     align-items: center;
     gap: 0.75rem;
     text-decoration: none;
-    color: var(--foreground);
     transition: opacity 0.2s;
   }
 
@@ -148,7 +152,7 @@ const {
     font-weight: 800;
     font-size: 1.125rem;
     letter-spacing: -0.02em;
-    color: var(--foreground);
+    color: var(--text);
     white-space: nowrap;
   }
 
@@ -156,7 +160,7 @@ const {
     font-weight: 600;
     font-size: 0.625rem;
     letter-spacing: 0.35em;
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin-top: 0.2rem;
     text-align: center;
     margin-left: 0.35em;
@@ -182,15 +186,14 @@ const {
   }
 
   .nav a {
-    color: var(--foreground);
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    opacity: 0.75;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
   }
 
   .nav a:hover {
-    opacity: 1;
+    color: var(--text);
   }
 
   main {
@@ -199,8 +202,8 @@ const {
   }
 
   .site-footer {
-    background: var(--primary);
-    color: var(--muted);
+    background: var(--background);
+    color: var(--text-secondary);
     margin-top: 4rem;
     padding: 3rem 2rem;
     border-top: 1px solid var(--border);
@@ -223,13 +226,12 @@ const {
   }
 
   .footer-links a {
-    color: var(--foreground);
+    color: var(--text-secondary);
     text-decoration: none;
-    opacity: 0.75;
-    transition: opacity 0.2s;
+    transition: color 0.2s;
   }
 
   .footer-links a:hover {
-    opacity: 1;
+    color: var(--text);
   }
 </style>

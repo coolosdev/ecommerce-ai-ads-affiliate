@@ -160,8 +160,8 @@ const meta: Record<string, unknown> = {
 
   .hero {
     text-align: center;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--foreground);
+    background: linear-gradient(135deg, var(--surface-elev), var(--surface));
+    color: var(--text);
     padding: 5rem 2rem;
     border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
@@ -188,7 +188,7 @@ const meta: Record<string, unknown> = {
   }
 
   .meta-item {
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border);
     padding: 1rem;
     border-radius: var(--radius);
@@ -197,7 +197,7 @@ const meta: Record<string, unknown> = {
 
   .meta-label {
     font-weight: 700;
-    color: var(--primary);
+    color: var(--text);
     font-size: 0.875rem;
     margin-bottom: 0.25rem;
   }
@@ -221,7 +221,7 @@ const meta: Record<string, unknown> = {
   }
 
   .audience-card {
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border);
     padding: 1.5rem;
     border-radius: var(--radius);
@@ -251,14 +251,14 @@ const meta: Record<string, unknown> = {
   }
 
   .tech-stack th {
-    background: var(--primary);
-    color: var(--foreground);
+    background: var(--surface-elev);
+    color: var(--text);
     font-weight: 600;
   }
 
   .key-diff {
-    background: #fef2f2;
-    border: 1px solid #fecaca;
+    background: rgba(212, 43, 43, 0.12);
+    border: 1px solid rgba(212, 43, 43, 0.35);
     padding: 1.5rem;
     border-radius: var(--radius);
     margin: 2rem 0;
@@ -281,7 +281,7 @@ const meta: Record<string, unknown> = {
   }
 
   .assets th {
-    background: #ffffff;
+    background: var(--surface);
     border: 1px solid var(--border);
   }
 
