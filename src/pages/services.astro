@@ -1,0 +1,592 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Services — Partner Revenue Labs";
+const description = "Omnichannel marketing services for up-and-coming brands, sponsorships, and brick-and-mortar retailers — across social media, YouTube, live streaming, Whatnot, Amazon, and eBay.";
+const canonical = "https://yourdomain.com/services";
+
+const channels = [
+  {
+    name: "Social Media",
+    tag: "Awareness & Demand",
+    icon: "share",
+    what: "Platform-native campaigns across Instagram, TikTok, and X that build audience, spark engagement, and keep your brand in the feed.",
+    outcomes: ["Audience growth and brand recall", "UGC and creator seeding", "Retargeting-ready audiences"],
+  },
+  {
+    name: "YouTube",
+    tag: "Consideration",
+    icon: "play",
+    what: "Pre-roll, creator integrations, and long-form product features that put your story in front of high-intent viewers.",
+    outcomes: ["In-stream awareness at scale", "Product demos that convert", "Search-driven evergreen discovery"],
+  },
+  {
+    name: "Live Streaming",
+    tag: "Real-Time Engagement",
+    icon: "live",
+    what: "Twitch, Kick, and TikTok Live activations that blend entertainment with commerce and drive immediate action.",
+    outcomes: ["Live audience engagement", "Real-time promotions and drops", "Community building around your brand"],
+  },
+  {
+    name: "Whatnot",
+    tag: "Live Shopping",
+    icon: "tag",
+    what: "Hosted live shopping events and giveaway drops that turn casual viewers into first-time and repeat buyers.",
+    outcomes: ["Live-shopping revenue events", "Inventory movement and urgency", "Collector and community reach"],
+  },
+  {
+    name: "Amazon",
+    tag: "Marketplace Conversion",
+    icon: "cart",
+    what: "Sponsored Products, storefront design, and listing optimization that help you win the buy box and scale reviews.",
+    outcomes: ["Higher organic ranking", "Profitable sponsored placements", "Full-funnel marketplace tracking"],
+  },
+  {
+    name: "eBay",
+    tag: "Extended Reach",
+    icon: "label",
+    what: "Marketplace presence and promoted listings that extend your reach to buyers who shop beyond your own storefront.",
+    outcomes: ["Additional sales channel", "Promoted listing visibility", "Cross-channel inventory strategy"],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="container">
+    <section class="page-hero">
+      <span class="hero-eyebrow">OUR SERVICES</span>
+      <h1>One agency. Every channel your customers use.</h1>
+      <p class="page-subtitle">We build, run, and measure omnichannel campaigns for up-and-coming brands, sponsorship partners, and brick-and-mortar retailers going online. Below is exactly how each channel works — and what it does for your customer experience.</p>
+      <div class="hero-ctas">
+        <a href="/contact" class="cta-primary">Book a Strategy Call</a>
+        <a href="/dashboard" class="cta-secondary">See the Dashboard</a>
+      </div>
+    </section>
+
+    <section class="channels-section">
+      <h2 class="section-title">The channel walkthrough</h2>
+      <div class="channels-list">
+        {channels.map((c) => (
+          <article class="channel-row">
+            <div class="channel-row-head">
+              <div class="channel-icon">
+                {c.icon === "share" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 3.9"/><path d="m15.4 6.6-6.8 3.9"/></svg>
+                )}
+                {c.icon === "play" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9"/></svg>
+                )}
+                {c.icon === "live" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/></svg>
+                )}
+                {c.icon === "tag" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                )}
+                {c.icon === "cart" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                )}
+                {c.icon === "label" && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/><circle cx="7" cy="7" r="1.5"/></svg>
+                )}
+              </div>
+              <div>
+                <h3>{c.name}</h3>
+                <span class="channel-tag">{c.tag}</span>
+              </div>
+            </div>
+            <p class="channel-what">{c.what}</p>
+            <ul class="channel-outcomes">
+              {c.outcomes.map((o) => (
+                <li>{o}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="how-section">
+      <h2 class="section-title">How we work</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <h3>Audit &amp; Strategy</h3>
+          <p>We map your current reach, goals, and budget to the channels most likely to convert your audience.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <h3>Build &amp; Connect</h3>
+          <p>We set up campaigns, creator partnerships, and listings — then connect everything to your dashboard.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <h3>Launch &amp; Optimize</h3>
+          <p>Campaigns go live, and we optimize spend weekly toward the channels and creative that perform.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <h3>Report &amp; Scale</h3>
+          <p>You see spend, ROAS, and conversions in real time — and we scale what works.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="packages-section">
+      <h2 class="section-title">Advertising packages</h2>
+      <p class="section-sub">Transparent scope and spend. Prices shown are starting points — final quotes depend on channels and budget.</p>
+      <div class="packages-grid">
+        <div class="package-card">
+          <h3>Launch</h3>
+          <p class="package-price">Starting at $1,500<span>/mo</span></p>
+          <p class="package-for">For up-and-coming brands getting their first real reach.</p>
+          <ul>
+            <li>2 channels of your choice</li>
+            <li>Monthly content calendar</li>
+            <li>Campaign setup &amp; management</li>
+            <li>Analytics dashboard access</li>
+          </ul>
+          <a href="/contact" class="package-cta">Start with Launch</a>
+        </div>
+        <div class="package-card package-card--featured">
+          <span class="package-badge">Most Popular</span>
+          <h3>Scale</h3>
+          <p class="package-price">Starting at $3,500<span>/mo</span></p>
+          <p class="package-for">For growing brands ready to own their niche across channels.</p>
+          <ul>
+            <li>4 channels of your choice</li>
+            <li>Creator &amp; sponsorship outreach</li>
+            <li>Weekly optimization &amp; reporting</li>
+            <li>Full dashboard + ad spend tracking</li>
+          </ul>
+          <a href="/contact" class="package-cta">Scale Your Reach</a>
+        </div>
+        <div class="package-card">
+          <h3>Dominate</h3>
+          <p class="package-price">Custom</p>
+          <p class="package-for">For brick-and-mortar retailers building a full online presence.</p>
+          <ul>
+            <li>All channels, fully managed</li>
+            <li>Dedicated account manager</li>
+            <li>Custom dashboards &amp; budgets</li>
+            <li>Marketplace + live shopping builds</li>
+          </ul>
+          <a href="/contact" class="package-cta">Build Your Presence</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h2>Not sure which package fits?</h2>
+      <p>Tell us where you are today — a new brand, a growing store, or a retailer going online — and we’ll recommend the right mix.</p>
+      <div class="cta-band-actions">
+        <a href="/contact" class="cta-primary">Book a Free Strategy Call</a>
+        <a href="/dashboard" class="cta-secondary">Preview the Dashboard</a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-hero {
+    padding: 4.5rem 0 3rem;
+    max-width: 46rem;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero h1 {
+    font-size: 2.75rem;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 30%, #6ee7b7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: #022c22;
+    padding: 0.9rem 1.75rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    background: var(--accent-hover);
+  }
+
+  .cta-secondary {
+    display: inline-block;
+    color: var(--text);
+    padding: 0.9rem 1.75rem;
+    border: 2px solid var(--border-hover);
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+
+  .cta-secondary:hover {
+    background: var(--surface-elev);
+    border-color: var(--text-secondary);
+  }
+
+  .channels-section,
+  .how-section,
+  .packages-section {
+    padding: 3.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-sub {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .channels-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .channels-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .channel-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: all 0.25s;
+  }
+
+  .channel-row:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+  }
+
+  .channel-row-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .channel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    flex-shrink: 0;
+    border-radius: 0.625rem;
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--accent);
+  }
+
+  .channel-row h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.15rem;
+  }
+
+  .channel-tag {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .channel-what {
+    font-size: 0.9375rem;
+    color: #cbd5e1;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .channel-outcomes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .channel-outcomes li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.8125rem;
+    color: #94a3b8;
+  }
+
+  .channel-outcomes li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .steps {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .step-num {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .step p {
+    font-size: 0.8125rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    margin-top: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .packages-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .package-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: all 0.25s;
+  }
+
+  .package-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .package-card--featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 18px 40px rgba(16, 185, 129, 0.15);
+  }
+
+  .package-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 2rem;
+    background: var(--accent);
+    color: #022c22;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.375rem;
+  }
+
+  .package-card h3 {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .package-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .package-price span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #94a3b8;
+  }
+
+  .package-for {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .package-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    flex: 1;
+  }
+
+  .package-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    line-height: 1.45;
+  }
+
+  .package-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .package-cta {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-hover);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
+  }
+
+  .package-cta:hover {
+    background: var(--surface-elev);
+    border-color: var(--accent);
+  }
+
+  .package-card--featured .package-cta {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #022c22;
+  }
+
+  .package-card--featured .package-cta:hover {
+    background: var(--accent-hover);
+  }
+
+  .cta-band {
+    margin: 3rem 0 2rem;
+    padding: 3.5rem 2rem;
+    border-radius: var(--radius);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.16), transparent 55%),
+      radial-gradient(circle at 85% 80%, rgba(212, 43, 43, 0.14), transparent 55%),
+      var(--surface);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-band p {
+    color: #94a3b8;
+    max-width: 36rem;
+    margin: 0 auto 1.75rem;
+    line-height: 1.6;
+  }
+
+  .cta-band-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .page-hero h1 { font-size: 2.1rem; }
+  }
+</style>

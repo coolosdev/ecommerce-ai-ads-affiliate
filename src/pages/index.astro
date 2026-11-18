@@ -1,15 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
 
-const title = "Partner Revenue Labs";
-const description = "AI-powered advertising and analytics tools for ecommerce brands.";
+const title = "Partner Revenue Labs — Online Marketing Agency";
+const description = "We help up-and-coming brands, sponsorships, and brick-and-mortar retailers grow online through advertising packages across social, YouTube, live streaming, and marketplaces — with a dashboard to track every dollar.";
 const canonical = "https://yourdomain.com/";
-
-const posts = await getCollection("blog");
-const sorted = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
-const featured = sorted.find((p) => p.data.featured) ?? sorted[0];
-const recent = sorted.filter((p) => p.slug !== featured?.slug);
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
@@ -17,97 +11,187 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
     <section class="hero">
       <div class="hero-bg-glow"></div>
       <div class="hero-content">
-        <span class="hero-eyebrow">ECOMMERCE ADVERTISING & ANALYTICS</span>
-        <h1>Partner Revenue Labs</h1>
-        <p class="hero-subtitle">Actionable guides and tools for ecommerce brands using AI in ads and analytics — so you can reclaim time and grow revenue.</p>
+        <span class="hero-eyebrow">FULL-SERVICE ONLINE MARKETING AGENCY</span>
+        <h1>We put your brand in front of the people who buy.</h1>
+        <p class="hero-subtitle">Up-and-coming brands, sponsorship deals, and brick-and-mortar retailers looking for real online reach — we build the exposure, run the ads, and track every dollar.</p>
         <div class="hero-ctas">
-          <a href="/blog" class="cta-primary">Explore Our Guides</a>
-          <a href="/contact" class="cta-secondary">Get in Touch</a>
+          <a href="/services" class="cta-primary">See Our Packages</a>
+          <a href="/contact" class="cta-secondary">Book a Call</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="visual-card">
           <div class="visual-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="m8.6 13.5 6.8 3.9"/><path d="m15.4 6.6-6.8 3.9"/></svg>
           </div>
-          <h3>AI-Powered</h3>
-          <p>Smarter ads, better ROI</p>
+          <h3>Omnichannel</h3>
+          <p>Every channel, one strategy</p>
         </div>
         <div class="visual-card">
           <div class="visual-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
           </div>
-          <h3>Data-Driven</h3>
-          <p>Insights that matter</p>
+          <h3>Tracked</h3>
+          <p>Ad spend you can see</p>
         </div>
         <div class="visual-card">
           <div class="visual-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <h3>Fast Setup</h3>
-          <p>Launch in minutes</p>
+          <h3>Fast Launch</h3>
+          <p>Live in weeks, not months</p>
         </div>
       </div>
     </section>
 
-    {featured ? (
-      <section class="featured-section">
-        <h2>Featured Article</h2>
-        <article class="featured-card">
-          <div class="featured-image">
-            <span class="featured-tag">Featured</span>
-            {featured.data.heroImage ? (
-              <img src={featured.data.heroImage} alt={featured.data.title} loading="eager" class="featured-img" />
-            ) : (
-              <div class="image-placeholder">🚀</div>
-            )}
+    <section class="channels-section">
+      <div class="section-intro">
+        <span class="section-eyebrow">WHERE WE PUT YOUR BRAND</span>
+        <h2>Exposure across the channels your customers live in</h2>
+        <p>From social feeds to live shopping events and marketplace placements, we meet buyers where they already are.</p>
+      </div>
+      <div class="channels-grid">
+        <div class="channel-card">
+          <div class="channel-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 3.9"/><path d="m15.4 6.6-6.8 3.9"/></svg>
           </div>
-          <div class="featured-content">
-            <h3><a href={`/blog/${featured.slug}`}>{featured.data.title}</a></h3>
-            <p>{featured.data.description}</p>
-            <div class="featured-meta">
-              <time>{featured.data.pubDate.toDateString()}</time>
-              {featured.data.tags && featured.data.tags.length > 0 && (
-                <span class="tags">
-                  {featured.data.tags.slice(0, 3).map((tag: string) => (
-                    <span class="tag">{tag}</span>
-                  ))}
-                </span>
-              )}
-            </div>
+          <h3>Social Media</h3>
+          <p>Instagram, TikTok, and X campaigns that build audience, demand, and brand recall.</p>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 15 12 10 15 10 9"/></svg>
           </div>
-        </article>
-      </section>
-    ) : null}
+          <h3>YouTube</h3>
+          <p>Pre-roll, creator integrations, and product features that turn viewers into buyers.</p>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M4.9 19.1a10 10 0 0 1 0-14.2"/><path d="M19.1 4.9a10 10 0 0 1 0 14.2"/><path d="M7.8 16.2a6 6 0 0 1 0-8.4"/><path d="M16.2 7.8a6 6 0 0 1 0 8.4"/></svg>
+          </div>
+          <h3>Live Streaming</h3>
+          <p>Twitch, Kick, and TikTok Live activations that drive real-time engagement and sales.</p>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <h3>Whatnot</h3>
+          <p>Live shopping events and giveaway drops that convert viewers into repeat buyers.</p>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+          </div>
+          <h3>Amazon</h3>
+          <p>Sponsored Products, storefronts, and listing optimization that win the buy box.</p>
+        </div>
+        <div class="channel-card">
+          <div class="channel-icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82Z"/><circle cx="7" cy="7" r="1.5"/></svg>
+          </div>
+          <h3>eBay</h3>
+          <p>Marketplace presence and promoted listings that extend your reach beyond your own site.</p>
+        </div>
+      </div>
+    </section>
 
-    {recent.length > 0 && (
-      <section class="recent-section">
-        <div class="section-header">
-          <h2>Recent Guides</h2>
-          <a href="/blog" class="view-all">View All →</a>
+    <section class="packages-section">
+      <div class="section-intro">
+        <span class="section-eyebrow">ADVERTISING PACKAGES</span>
+        <h2>Pick a package. We handle the rest.</h2>
+        <p>Clear scope, transparent ad spend, and a dashboard that shows exactly where your money goes.</p>
+      </div>
+      <div class="packages-grid">
+        <div class="package-card">
+          <h3>Launch</h3>
+          <p class="package-for">For up-and-coming brands getting their first real reach.</p>
+          <ul>
+            <li>2 channels of your choice</li>
+            <li>Monthly content calendar</li>
+            <li>Campaign setup &amp; management</li>
+            <li>Access to the analytics dashboard</li>
+          </ul>
+          <a href="/services" class="package-cta">Start with Launch</a>
         </div>
-        <div class="recent-grid">
-          {recent.slice(0, 6).map((post) => (
-            <article class="post-card" key={post.slug}>
-              <div class="post-card-image">
-                {post.data.heroImage ? (
-                  <img src={post.data.heroImage} alt={post.data.title} loading="lazy" class="post-card-img" />
-                ) : (
-                  <div class="image-placeholder-sm">
-                    {post.data.tags?.[0]?.charAt(0)?.toUpperCase() || '📝'}
-                  </div>
-                )}
-              </div>
-              <div class="post-card-content">
-                <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
-                <p>{post.data.description?.slice(0, 100)}...</p>
-                <time>{post.data.pubDate.toDateString()}</time>
-              </div>
-            </article>
-          ))}
+        <div class="package-card package-card--featured">
+          <span class="package-badge">Most Popular</span>
+          <h3>Scale</h3>
+          <p class="package-for">For growing brands ready to own their niche across channels.</p>
+          <ul>
+            <li>4 channels of your choice</li>
+            <li>Creator &amp; sponsorship outreach</li>
+            <li>Weekly optimization &amp; reporting</li>
+            <li>Full dashboard + ad spend tracking</li>
+          </ul>
+          <a href="/services" class="package-cta">Scale Your Reach</a>
         </div>
-      </section>
-    )}
+        <div class="package-card">
+          <h3>Dominate</h3>
+          <p class="package-for">For brick-and-mortar retailers building a full online presence.</p>
+          <ul>
+            <li>All channels, fully managed</li>
+            <li>Dedicated account manager</li>
+            <li>Custom dashboards &amp; budgets</li>
+            <li>Marketplace + live shopping builds</li>
+          </ul>
+          <a href="/services" class="package-cta">Build Your Presence</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-preview-section">
+      <div class="dashboard-preview-content">
+        <span class="section-eyebrow">YOUR NUMBERS, LIVE</span>
+        <h2>A dashboard that makes ad spend make sense.</h2>
+        <p>Every campaign, channel, and dollar in one place — impressions, clicks, conversions, ROAS, and spend, updated as it happens.</p>
+        <a href="/dashboard" class="cta-primary">Preview the Dashboard</a>
+      </div>
+      <div class="dashboard-mock">
+        <div class="mock-header">
+          <span class="mock-dot mock-dot--red"></span>
+          <span class="mock-dot mock-dot--amber"></span>
+          <span class="mock-dot mock-dot--green"></span>
+          <span class="mock-title">Campaign Overview</span>
+        </div>
+        <div class="mock-stats">
+          <div class="mock-stat">
+            <span class="mock-label">Ad Spend</span>
+            <span class="mock-value">$24,180</span>
+            <span class="mock-change mock-change--up">+12.4%</span>
+          </div>
+          <div class="mock-stat">
+            <span class="mock-label">ROAS</span>
+            <span class="mock-value">4.2x</span>
+            <span class="mock-change mock-change--up">+0.6x</span>
+          </div>
+          <div class="mock-stat">
+            <span class="mock-label">Conversions</span>
+            <span class="mock-value">1,842</span>
+            <span class="mock-change mock-change--up">+18.2%</span>
+          </div>
+        </div>
+        <div class="mock-chart">
+          <div class="mock-bar" style="height: 40%"></div>
+          <div class="mock-bar" style="height: 55%"></div>
+          <div class="mock-bar" style="height: 35%"></div>
+          <div class="mock-bar" style="height: 70%"></div>
+          <div class="mock-bar" style="height: 60%"></div>
+          <div class="mock-bar" style="height: 85%"></div>
+          <div class="mock-bar" style="height: 75%"></div>
+          <div class="mock-bar" style="height: 95%"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h2>Ready to turn attention into revenue?</h2>
+      <p>Tell us about your brand — online, in-store, or both — and we'll map out the fastest path to reach.</p>
+      <div class="cta-band-actions">
+        <a href="/contact" class="cta-primary">Book a Free Strategy Call</a>
+        <a href="/services" class="cta-secondary">Compare Packages</a>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
@@ -186,7 +270,7 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
     color: #cbd5e1;
     margin-bottom: 2.25rem;
     line-height: 1.65;
-    max-width: 30rem;
+    max-width: 32rem;
   }
 
   .hero-ctas {
@@ -196,6 +280,7 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
   }
 
   .cta-primary {
+    display: inline-block;
     background: var(--accent);
     color: #022c22;
     padding: 0.9rem 1.75rem;
@@ -213,6 +298,7 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
   }
 
   .cta-secondary {
+    display: inline-block;
     color: var(--text);
     padding: 0.9rem 1.75rem;
     border: 2px solid var(--border-hover);
@@ -275,245 +361,354 @@ const recent = sorted.filter((p) => p.slug !== featured?.slug);
     line-height: 1.4;
   }
 
-  /* Featured Section */
-  .featured-section {
-    padding: 3rem 0;
+  /* Section shared styles */
+  .channels-section,
+  .packages-section,
+  .dashboard-preview-section {
+    padding: 4rem 0;
   }
 
-  .featured-section h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: var(--text);
+  .section-intro {
+    max-width: 44rem;
+    margin-bottom: 2.5rem;
   }
 
-  .featured-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.2s;
-  }
-
-  @media (min-width: 768px) {
-    .featured-card {
-      grid-template-columns: 2fr 3fr;
-    }
-  }
-
-  .featured-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
-
-  .featured-image {
-    background: var(--surface-elev);
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .featured-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .featured-tag {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: var(--accent);
-    color: #ffffff;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
+  .section-eyebrow {
+    display: inline-block;
     font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .image-placeholder {
-    font-size: 4rem;
-    opacity: 0.3;
-  }
-
-  .featured-content {
-    padding: 2rem;
-  }
-
-  .featured-content h3 {
-    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-  }
-
-  .featured-content h3 a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .featured-content h3 a:hover {
+    letter-spacing: 0.18em;
     color: var(--accent);
+    margin-bottom: 0.75rem;
   }
 
-  .featured-content p {
-    color: var(--muted);
-    margin-bottom: 1rem;
+  .section-intro h2,
+  .dashboard-preview-content h2,
+  .cta-band h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+
+  .section-intro p,
+  .dashboard-preview-content p {
+    color: #94a3b8;
+    font-size: 1.0625rem;
     line-height: 1.6;
   }
 
-  .featured-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    color: var(--muted);
-    font-size: 0.875rem;
-  }
-
-  .tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    background: var(--surface-elev);
-    color: var(--text);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  /* Recent Section */
-  .recent-section {
-    padding: 3rem 0;
-  }
-
-  .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1.5rem;
-  }
-
-  .section-header h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
-  }
-
-  .view-all {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.875rem;
-    transition: all 0.2s;
-  }
-
-  .view-all:hover {
-    color: var(--accent-hover);
-  }
-
-  .recent-grid {
+  /* Channels */
+  .channels-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   @media (min-width: 640px) {
-    .recent-grid {
+    .channels-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (min-width: 1024px) {
-    .recent-grid {
+    .channels-grid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  .post-card {
+  .channel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    transition: all 0.25s;
+  }
+
+  .channel-card:hover {
+    border-color: rgba(16, 185, 129, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.5);
+  }
+
+  .channel-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.625rem;
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .channel-card h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+  }
+
+  .channel-card p {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+
+  /* Packages */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 768px) {
+    .packages-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .package-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: all 0.25s;
+  }
+
+  .package-card:hover {
+    border-color: rgba(16, 185, 129, 0.4);
+    transform: translateY(-3px);
+  }
+
+  .package-card--featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 18px 40px rgba(16, 185, 129, 0.15);
+  }
+
+  .package-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 2rem;
+    background: var(--accent);
+    color: #022c22;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.375rem;
+  }
+
+  .package-card h3 {
+    font-size: 1.375rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+
+  .package-for {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .package-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    flex: 1;
+  }
+
+  .package-card li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    line-height: 1.45;
+  }
+
+  .package-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .package-cta {
+    display: block;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-hover);
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.2s;
+  }
+
+  .package-cta:hover {
+    background: var(--surface-elev);
+    border-color: var(--accent);
+  }
+
+  .package-card--featured .package-cta {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #022c22;
+  }
+
+  .package-card--featured .package-cta:hover {
+    background: var(--accent-hover);
+  }
+
+  /* Dashboard preview */
+  .dashboard-preview-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .dashboard-preview-section {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .dashboard-preview-content p {
+    margin-bottom: 1.75rem;
+  }
+
+  .dashboard-mock {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    transition: all 0.2s;
+    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.6);
   }
 
-  .post-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
-
-  .post-card-image {
-    height: 160px;
-    background: var(--surface-elev);
+  .mock-header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-elev);
   }
 
-  .post-card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s;
+  .mock-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
   }
 
-  .post-card:hover .post-card-img {
-    transform: scale(1.05);
-  }
+  .mock-dot--red { background: #ef4444; }
+  .mock-dot--amber { background: #f59e0b; }
+  .mock-dot--green { background: #10b981; }
 
-  .image-placeholder-sm {
-    font-size: 3rem;
-    opacity: 0.3;
-  }
-
-  .post-card-content {
-    padding: 1.25rem;
-  }
-
-  .post-card-content h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .post-card-content h3 a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .post-card-content h3 a:hover {
-    color: var(--accent);
-  }
-
-  .post-card-content p {
-    color: var(--muted);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
-  }
-
-  .post-card-content time {
-    color: var(--muted);
+  .mock-title {
+    margin-left: 0.5rem;
     font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+  }
+
+  .mock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .mock-stat {
+    background: var(--surface);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .mock-label {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .mock-value {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .mock-change {
+    font-size: 0.6875rem;
+    font-weight: 700;
+  }
+
+  .mock-change--up { color: var(--accent); }
+
+  .mock-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    height: 9rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .mock-bar {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(16, 185, 129, 0.9), rgba(16, 185, 129, 0.25));
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+
+  /* CTA band */
+  .cta-band {
+    margin: 4rem 0 2rem;
+    padding: 3.5rem 2rem;
+    border-radius: var(--radius);
+    background:
+      radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.16), transparent 55%),
+      radial-gradient(circle at 85% 80%, rgba(212, 43, 43, 0.14), transparent 55%),
+      var(--surface);
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .cta-band p {
+    color: #94a3b8;
+    max-width: 36rem;
+    margin: 0 auto 1.75rem;
+    line-height: 1.6;
+  }
+
+  .cta-band-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2.25rem; }
+    .section-intro h2,
+    .dashboard-preview-content h2,
+    .cta-band h2 { font-size: 1.6rem; }
+    .hero-visual { grid-template-columns: 1fr; }
   }
 </style>

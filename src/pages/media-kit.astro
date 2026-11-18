@@ -22,9 +22,8 @@ const meta: Record<string, unknown> = {
   <div class="container">
     {featured ? (
       <section class="hero">
-        <h1>The Media Kit</h1>
-        <p>{featured.data.title}</p>
-        <a href={`/blog/${featured.slug}`} class="cta-primary">Read Guide →</a>
+        <h1>Sponsorship &amp; Press Kit</h1>
+        <p>Agency positioning, audience metrics, channel reach, and asset downloads for press and brand partners.</p>
       </section>
     ) : null}
 
@@ -37,23 +36,24 @@ const meta: Record<string, unknown> = {
         </div>
         <div class="meta-item">
           <span class="meta-label">Tagline</span>
-          <span class="meta-value">Actionable guides and tools for ecommerce brands using AI in ads and analytics.</span>
+          <span class="meta-value">Exposure, engineered end to end.</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Mission</span>
-          <span class="meta-value">Help ecommerce founders reclaim time and grow revenue via AI tools, affiliate programs, and analytics stacks.</span>
+          <span class="meta-value">Help up-and-coming brands, sponsorship partners, and brick-and-mortar retailers build real online reach across social, YouTube, live streaming, and marketplaces.</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Target Niche</span>
-          <span class="meta-value">Shopify / DTC brands using AI in ads (Performance Max, Meta Advantage+) and analytics (Triple Whale, Northbeam, Hyros).</span>
+          <span class="meta-value">Direct-to-consumer brands, creator partnerships, and retail brands moving from brick-and-mortar to online.</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Core Offering</span>
-          <span class="meta-value">Curated affiliate-focused site + evergreen blog content + free ROI resources.</span>
+          <span class="meta-value">Omnichannel advertising packages across social media, YouTube, Twitch/TikTok Live, Whatnot live shopping, Amazon, and eBay — with a shared analytics dashboard.</span>
         </div>
         <div class="meta-item">
           <span class="meta-label">Monetization</span>
-          <span class="meta-value">Affiliate commissions (Klaviyo, Triple Whale, Northbeam, Hyros, AdCreative.ai, Predis.ai, Supermetrics), newsletter sponsorships, display/partner CTAs.</span>
+          <span class="meta-value">Advertising packages (Launch, Scale, Dominate), campaign management fees, and sponsorship activation commissions.</span>
+        </div>
       </div>
 
       <div class="audience-grid">
@@ -80,10 +80,11 @@ const meta: Record<string, unknown> = {
       <div class="content-strategy">
         <h2>Content Strategy</h2>
         <ul>
-          <li><strong>5 cornerstone posts</strong> (one per launch week): Google Performance Max/Meta Advantage+; Klaviyo vs Gorgias vs Freshdesk; Triple Whale vs Northbeam vs Hyros; AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics); GA4 + Hotjar + Segment.</li>
-          <li><strong>Dynamic blog routing</strong>: `/blog/[...slug].astro` — each post rendered via `getStaticPaths()`; new posts auto-added to sitemap.</li>
-          <li><strong>SEO</strong>: Per-page `<title>`, `description`, Open Graph & Twitter cards, canonical URLs (`https://yourdomain.com/` + slug), Zod-validated front-matter, `astro:content` collection config.</li>
-          <li><strong>CTA flow</strong>: Hero → “Explore Our Guides” → individual blog post → “Subscribe for weekly tips” → MailerLite opt-in → weekly digest.</li>
+          <li><strong>Omnichannel walkthrough</strong>: detailed channel pages for social media, YouTube, live streaming, Whatnot live shopping, Amazon, and eBay — each with what we do and the customer-experience outcomes.</li>
+          <li><strong>Advertising packages</strong>: Launch ($1,500/mo), Scale ($3,500/mo), and Dominate (custom) with transparent scope and ad spend.</li>
+          <li><strong>Client dashboard</strong>: real-time preview of ad spend, ROAS, impressions, conversions, and channel performance at `/dashboard`.</li>
+          <li><strong>Case studies &amp; insights</strong>: ongoing breakdowns of campaigns, channel results, and live-shopping activations at `/blog` (Insights).</li>
+          <li><strong>SEO</strong>: Per-page `<title>`, `description`, Open Graph & Twitter cards, canonical URLs, Zod-validated front-matter, `astro:content` collection config.</li>
         </ul>
       </div>
 
@@ -136,11 +137,11 @@ const meta: Record<string, unknown> = {
         <h2>Press Release (Draft)</h2>
         <blockquote>
           FOR IMMEDIATE RELEASE<br/><br/>
-          Partner Revenue Labs Launches – The First Curated Resource for AI-Powered Ecommerce Advertising<br/>
-          [City, Date] – Partner Revenue Labs goes live today as the first free, Cloudflare-powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics.<br/>
-          Built and maintained by Coolosdev (GitHub: coolosdev, Cloudflare Account ID: 41d04827c085112d57a6ae3271ca1153). All content is static-hosted on Cloudflare Pages for $0/month, with a roadmap to a free AI-ad ROI calculator and quarterly "State of AI in E-commerce Ads" benchmark report.
+          Partner Revenue Labs Launches as Full-Service Online Marketing Agency<br/>
+          [City, Date] – Partner Revenue Labs goes live today as a full-service online marketing agency helping up-and-coming brands, sponsorship partners, and brick-and-mortar retailers build real online reach across social media, YouTube, live streaming, and marketplaces.<br/>
+          The agency offers three advertising packages — Launch, Scale, and Dominate — plus a shared client dashboard that tracks ad spend, ROAS, and conversions across every channel in real time.
         </blockquote>
-        <p>“Our goal is to help founders reclaim time and grow revenue without paying enterprise-grade analytics fees,” says Coolosdev. “By stripping away the noise and surfacing only the tools that actually move the needle, we give solo founders the same lever that large brands use.”</p>
+        <p>"Most brands don't have a reach problem — they have a focus problem," says Coolosdev. "We bring every channel into one strategy and prove it worked with a dashboard that shows exactly where every dollar went."</p>
         <p>Media contacts:<br/>Coolosdev | coolosdev26@proton.me | https://github.com/coolosdev</p>
       </div>
     </section>

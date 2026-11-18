@@ -1,37 +1,84 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const title = "Contact";
-const description = "Get in touch with Partner Revenue Labs. Media inquiries, partnerships, or general feedback.";
+const title = "Contact — Partner Revenue Labs";
+const description = "Book a free strategy call with Partner Revenue Labs. Tell us about your brand and where you want to grow online.";
 const canonical = "https://yourdomain.com/contact";
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
   <div class="container">
     <section class="contact-section">
-      <h1>Get in Touch</h1>
-      <p class="intro">We'd love to hear from you. Whether you have a question about one of our guides, want to discuss a partnership, or have a media inquiry.</p>
+      <span class="hero-eyebrow">LET'S TALK</span>
+      <h1>Book a free strategy call</h1>
+      <p class="intro">Tell us where you are today — a new brand, a growing store, or a retailer going online — and we'll map the fastest path to reach. No pressure, no jargon.</p>
 
-      <div class="contact-cards">
-        <div class="contact-card">
-          <h2>Media Inquiries</h2>
-          <p>For press, sponsorship, or editorial partnership opportunities, reach out to our team.</p>
-          <a href="mailto:hello@yourdomain.com" class="cta-primary">Media Email</a>
-        </div>
-        <div class="contact-card">
-          <h2>General Feedback</h2>
-          <p>Questions about our guides or tools? We'd love to hear your thoughts.</p>
-          <a href="mailto:hello@yourdomain.com" class="cta-primary">Email Us</a>
-        </div>
-      </div>
+      <div class="contact-layout">
+        <form class="contact-form" action="mailto:hello@yourdomain.com" method="post" enctype="text/plain">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="brand">Brand / Business</label>
+            <input id="brand" name="brand" type="text" placeholder="Your brand or store name" />
+          </div>
+          <div class="field">
+            <label for="type">Where are you today?</label>
+            <select id="type" name="type">
+              <option>Up-and-coming brand</option>
+              <option>Existing online store</option>
+              <option>Brick-and-mortar retailer going online</option>
+              <option>Sponsorship / partnership</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="channels">Channels you're interested in</label>
+            <select id="channels" name="channels">
+              <option>Not sure yet — advise me</option>
+              <option>Social media (Instagram, TikTok, X)</option>
+              <option>YouTube</option>
+              <option>Live streaming (Twitch, Kick, TikTok Live)</option>
+              <option>Whatnot live shopping</option>
+              <option>Amazon / eBay marketplaces</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">What are you trying to achieve?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Goals, budget, timeline — anything helpful."></textarea>
+          </div>
+          <button type="submit" class="cta-primary">Send Inquiry</button>
+        </form>
 
-      <div class="social-section">
-        <h2>Follow Our Work</h2>
-        <div class="social-links">
-          <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" class="social-link">Twitter / X</a>
-          <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
-          <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" class="social-link">Instagram</a>
-        </div>
+        <aside class="contact-aside">
+          <div class="aside-card">
+            <h2>Prefer email?</h2>
+            <p>Reach us directly and we'll respond within one business day.</p>
+            <a href="mailto:hello@yourdomain.com" class="aside-link">hello@yourdomain.com</a>
+          </div>
+          <div class="aside-card">
+            <h2>What happens next</h2>
+            <ol class="next-list">
+              <li>We review your goals and current reach.</li>
+              <li>You get a recommended channel mix and package.</li>
+              <li>We scope budget, timeline, and dashboard access.</li>
+            </ol>
+          </div>
+          <div class="aside-card">
+            <h2>Follow our work</h2>
+            <div class="social-links">
+              <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" class="social-link">Twitter / X</a>
+              <a href="https://linkedin.com/company/yourcompany" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+              <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" class="social-link">Instagram</a>
+            </div>
+          </div>
+        </aside>
       </div>
     </section>
   </div>
@@ -39,7 +86,7 @@ const canonical = "https://yourdomain.com/contact";
 
 <style>
   .container {
-    max-width: 800px;
+    max-width: 1050px;
     margin: 0 auto;
     padding: 0 2rem;
   }
@@ -48,65 +95,204 @@ const canonical = "https://yourdomain.com/contact";
     padding: 4rem 0;
   }
 
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
   .contact-section h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: 2.75rem;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 30%, #6ee7b7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: var(--text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .intro {
     font-size: 1.125rem;
-    color: var(--muted);
+    color: #cbd5e1;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    max-width: 40rem;
   }
 
-  .contact-cards {
+  .contact-layout {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    gap: 2rem;
   }
 
-  @media (min-width: 768px) {
-    .contact-cards {
-      grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 900px) {
+    .contact-layout {
+      grid-template-columns: 1.4fr 1fr;
+      align-items: start;
     }
   }
 
-  .contact-card {
-    background: var(--surface-elev);
+  .contact-form {
+    background: var(--surface);
     border: 1px solid var(--border);
-    padding: 1.5rem;
     border-radius: var(--radius);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
   }
 
-  .contact-card h2 {
-    font-size: 1.125rem;
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  @media (min-width: 560px) {
+    .field-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .field label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-family: inherit;
+    font-size: 0.9375rem;
+    color: var(--text);
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.65rem 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: #64748b;
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  }
+
+  .field textarea {
+    resize: vertical;
+  }
+
+  .cta-primary {
+    background: var(--accent);
+    color: #022c22;
+    padding: 0.9rem 1.75rem;
+    border: none;
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    background: var(--accent-hover);
+  }
+
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .aside-card {
+    background: var(--surface-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .aside-card h2 {
+    font-size: 1rem;
     font-weight: 700;
     color: var(--text);
     margin-bottom: 0.5rem;
   }
 
-  .contact-card p {
-    color: var(--muted);
+  .aside-card p {
+    color: #94a3b8;
     font-size: 0.875rem;
-    margin-bottom: 1rem;
+    line-height: 1.55;
+    margin-bottom: 0.75rem;
   }
 
-  .social-section {
-    background: var(--surface-elev);
-    border: 1px solid var(--border);
-    padding: 1.5rem;
-    border-radius: var(--radius);
+  .aside-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
   }
 
-  .social-section h2 {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 1rem;
+  .aside-link:hover {
+    color: var(--accent-hover);
+  }
+
+  .next-list {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .next-list li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 1.9rem;
+    color: #94a3b8;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .next-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .social-links {
@@ -125,5 +311,9 @@ const canonical = "https://yourdomain.com/contact";
 
   .social-link:hover {
     color: var(--accent-hover);
+  }
+
+  @media (max-width: 640px) {
+    .contact-section h1 { font-size: 2.1rem; }
   }
 </style>

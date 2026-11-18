@@ -2,8 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
-const title = "Blog";
-const description = "Actionable guides for ecommerce brands using AI in ads and analytics.";
+const title = "Insights";
+const description = "Insights, breakdowns, and case studies on omnichannel marketing, live shopping, and marketplace growth.";
 const canonical = "https://yourdomain.com/blog";
 
 const posts = await getCollection("blog");
@@ -15,8 +15,8 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
 <BaseLayout title={title} description={description} canonical={canonical}>
   <div class="container">
     <section class="page-hero">
-      <h1>The Blog</h1>
-      <p>Actionable guides on AI ads, analytics, attribution, and the tools that move ecommerce forward.</p>
+      <h1>Insights</h1>
+      <p>Real-world breakdowns on omnichannel marketing, live shopping, and marketplace growth — straight from the agency floor.</p>
     </section>
 
     {featured ? (
@@ -27,14 +27,14 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
           <p>{featured.data.description}</p>
           <div class="featured-meta">
             <time>{featured.data.pubDate.toDateString()}</time>
-            <span class="read-more">Read guide →</span>
+            <span class="read-more">Read more →</span>
           </div>
         </a>
       </section>
     ) : null}
 
     <section class="posts-section">
-      <h2>All Guides</h2>
+      <h2>Latest Insights</h2>
       <div class="posts-grid">
         {rest.map((post) => (
           <article class="post-card" key={post.slug}>
@@ -53,7 +53,7 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
               </div>
               <h3><a href={`/blog/${post.slug}`}>{post.data.title}</a></h3>
               <p>{post.data.description?.slice(0, 120)}...</p>
-              <a href={`/blog/${post.slug}`} class="read-link">Read guide →</a>
+              <a href={`/blog/${post.slug}`} class="read-link">Read more →</a>
             </div>
           </article>
         ))}
