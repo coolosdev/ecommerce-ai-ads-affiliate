@@ -1,0 +1,83 @@
+---
+import SEO from "../components/SEO.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: Record<string, unknown>;
+}
+
+const {
+  title = "Ecommerce AI Ads & Analytics",
+  description = "Actionable guides and tools for ecommerce brands using AI in ads and analytics.",
+  canonical = "https://yourdomain.com/",
+  ogImage,
+  schema,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO title={title} description={description} canonical={canonical} ogImage={ogImage} schema={schema} />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="/" class="logo">Ecommerce AI Ads & Analytics</a>
+      <nav>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>&copy; {new Date().getFullYear()} Ecommerce AI Ads & Analytics. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #111;
+    margin: 0;
+    padding: 0;
+  }
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    color: #111;
+  }
+  nav a {
+    margin-left: 1.25rem;
+    text-decoration: none;
+    color: #4b5563;
+  }
+  nav a:hover { color: #2563eb; }
+  main { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+  .site-footer {
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+    border-top: 1px solid #e5e7eb;
+    color: #6b7280;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: Record<string, unknown>;
+}
+
+const {
+  title = "Ecommerce AI Ads & Analytics",
+  description = "Actionable guides and tools for ecommerce brands using AI in ads and analytics.",
+  canonical,
+  ogImage,
+  schema,
+} = Astro.props as Props;
+
+const meta: Metadata = {
+  title,
+  description,
+  canonical: canonical || "https://yourdomain.com/",
+  openGraph: {
+    title,
+    description,
+    ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+};
+---
+
+<title>{meta.title}</title>
+<link rel="canonical" href={meta.canonical} />
+<meta name="description" content={meta.description} />
+<meta property="og:title" content={meta.openGraph?.title} />
+<meta property="og:description" content={meta.openGraph?.description} />
+{ogImage && <meta property="og:image" content={ogImage} />}
+<meta name="twitter:card" content={meta.twitter.card} />
+<meta name="twitter:title" content={meta.twitter.title} />
+<meta name="twitter:description" content={meta.twitter.description} />
+
+{Array.isArray(schema) ? (
+  schema.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))
+) : null}

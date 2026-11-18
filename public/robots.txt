@@ -1,0 +1,9 @@
+User-agent: *
+Allow:
+  /
+Sitemap:
+  URL: https://yourdomain.com/sitemap.xml
+  IndexStatus: index
+Robots:
+  Index: /blog
+  Disallow: /admin /wp-lock.php

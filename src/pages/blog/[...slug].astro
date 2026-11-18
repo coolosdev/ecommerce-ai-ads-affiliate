@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post, slug: post.slug },
+  }));
+}
+
+const { post, slug } = Astro.props;
+---
+
+<BaseLayout
+  title={post?.data.title ?? "Article"}
+  description={post?.data.description ?? ""}
+  canonical={`https://yourdomain.com/${slug}`}
+>
+  {post ? (
+    <article>
+      <h1>{post.data.title}</h1>
+      <time>{post.data.pubDate.toDateString()}</time>
+      <div set:html={post.render().html} />
+    </article>
+  ) : (
+    <article>
+      <h1>Article not found</h1>
+      <p>We couldn't find an article at that path.</p>
+    </article>
+  )}
+</BaseLayout>
+
+<style>
+  article h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+  article time { display: block; color: #6b7280; font-size: 0.875rem; margin-bottom: 1.5rem; }
+  article :global(h2) { font-size: 1.5rem; margin-top: 2rem; }
+  article :global(h3) { font-size: 1.25rem; margin-top: 1.5rem; }
+  article :global(a) { color: #2563eb; text-decoration: underline; }
+  article :global(code) { background: #f3f4f6; padding: 0.2rem 0.4rem; border-radius: 4px; }
+  article :global(.cta) {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+</style>

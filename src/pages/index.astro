@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const title = "Ecommerce AI Ads & Analytics";
+const description = "AI-powered advertising and analytics tools for ecommerce brands.";
+const canonical = "https://yourdomain.com/";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <section class="hero">
+    <h1>Ecommerce AI Ads & Analytics</h1>
+    <p>Actionable guides and tools for ecommerce brands using AI in ads and analytics.</p>
+    <a href="/blog" class="cta-button">Read Our Guides</a>
+  </section>
+
+  <section class="featured">
+    <h2>Featured Article</h2>
+    <article>
+      <h3><a href="/blog/hello-world">AI Automation for Solo Founders</a></h3>
+      <p>The 5 AI tools that gave me back 20 hours/week and how you can use them too.</p>
+      <time>Jan 15, 2026</time>
+    </article>
+  </section>
+
+  <section class="recent">
+    <h2>Recent Guides</h2>
+    <ul>
+      <li><a href="/blog/hello-world">AI Automation for Solo Founders</a></li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1e293b, #475569);
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+    border-radius: 1rem;
+  }
+  .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+  .hero p { font-size: 1.125rem; margin-bottom: 1.5rem; opacity: 0.95; }
+  .cta-button {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .cta-button:hover { background: #1d4ed8; }
+  .featured, .recent { margin-top: 3rem; }
+  .featured h2, .recent h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+  .featured a, .recent a { color: #2563eb; text-decoration: none; font-weight: 600; }
+  .featured a:hover, .recent a:hover { text-decoration: underline; }
+  .featured time, .recent time { font-size: 0.875rem; color: #6b7280; }
+</style>
