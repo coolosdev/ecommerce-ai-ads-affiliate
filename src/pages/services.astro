@@ -212,17 +212,13 @@ const channels = [
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #ffffff 30%, #6ee7b7 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     color: var(--text);
     margin-bottom: 1.25rem;
   }
 
   .page-subtitle {
     font-size: 1.125rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     line-height: 1.65;
     margin-bottom: 2rem;
   }
@@ -236,13 +232,13 @@ const channels = [
   .cta-primary {
     display: inline-block;
     background: var(--accent);
-    color: #022c22;
+    color: var(--primary);
     padding: 0.9rem 1.75rem;
     border-radius: var(--radius);
     text-decoration: none;
     font-weight: 700;
     transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 4px 20px rgba(143, 174, 143, 0.25);
   }
 
   .cta-primary:hover {
@@ -281,7 +277,7 @@ const channels = [
   }
 
   .section-sub {
-    color: #94a3b8;
+    color: var(--text-secondary);
     margin-bottom: 2rem;
     line-height: 1.6;
   }
@@ -307,7 +303,7 @@ const channels = [
   }
 
   .channel-row:hover {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(143, 174, 143, 0.4);
   }
 
   .channel-row-head {
@@ -325,7 +321,7 @@ const channels = [
     height: 2.75rem;
     flex-shrink: 0;
     border-radius: 0.625rem;
-    background: rgba(16, 185, 129, 0.12);
+    background: rgba(143, 174, 143, 0.12);
     color: var(--accent);
   }
 
@@ -346,7 +342,7 @@ const channels = [
 
   .channel-what {
     font-size: 0.9375rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     line-height: 1.55;
     margin-bottom: 1rem;
   }
@@ -364,7 +360,7 @@ const channels = [
     position: relative;
     padding-left: 1.25rem;
     font-size: 0.8125rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
 
   .channel-outcomes li::before {
@@ -419,7 +415,7 @@ const channels = [
 
   .step p {
     font-size: 0.8125rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.5;
   }
 
@@ -449,13 +445,13 @@ const channels = [
   }
 
   .package-card:hover {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(143, 174, 143, 0.4);
     transform: translateY(-3px);
   }
 
   .package-card--featured {
     border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent), 0 18px 40px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 0 1px var(--accent), 0 18px 40px rgba(143, 174, 143, 0.15);
   }
 
   .package-badge {
@@ -463,7 +459,7 @@ const channels = [
     top: -0.75rem;
     left: 2rem;
     background: var(--accent);
-    color: #022c22;
+    color: var(--primary);
     font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -489,12 +485,12 @@ const channels = [
   .package-price span {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
 
   .package-for {
     font-size: 0.875rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 1.25rem;
   }
@@ -513,7 +509,7 @@ const channels = [
     position: relative;
     padding-left: 1.5rem;
     font-size: 0.875rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     line-height: 1.45;
   }
 
@@ -546,7 +542,7 @@ const channels = [
   .package-card--featured .package-cta {
     background: var(--accent);
     border-color: var(--accent);
-    color: #022c22;
+    color: var(--primary);
   }
 
   .package-card--featured .package-cta:hover {
@@ -558,7 +554,7 @@ const channels = [
     padding: 3.5rem 2rem;
     border-radius: var(--radius);
     background:
-      radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.16), transparent 55%),
+      radial-gradient(circle at 20% 20%, rgba(143, 174, 143, 0.16), transparent 55%),
       radial-gradient(circle at 85% 80%, rgba(212, 43, 43, 0.14), transparent 55%),
       var(--surface);
     border: 1px solid var(--border);
@@ -573,7 +569,7 @@ const channels = [
   }
 
   .cta-band p {
-    color: #94a3b8;
+    color: var(--text-secondary);
     max-width: 36rem;
     margin: 0 auto 1.75rem;
     line-height: 1.6;

@@ -20,7 +20,7 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
     </section>
 
     {featured ? (
-      <section class="featured-banner" style={featured.data.heroImage ? `background-image: linear-gradient(135deg, rgba(15,23,42,0.85), rgba(16,185,129,0.75)), url('${featured.data.heroImage}'); background-size: cover; background-position: center;` : ""}>
+      <section class="featured-banner" style={featured.data.heroImage ? `background-image: linear-gradient(135deg, rgba(247,245,240,0.94), rgba(143,174,143,0.75)), url('${featured.data.heroImage}'); background-size: cover; background-position: center;` : ""}>
         <a href={`/blog/${featured.slug}`} class="featured-link">
           <div class="featured-badge">Featured</div>
           <h2>{featured.data.title}</h2>
@@ -100,7 +100,7 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
 
   .featured-link {
     display: block;
-    color: #ffffff;
+    color: var(--text);
     text-decoration: none;
     padding: 2rem;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -108,12 +108,13 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
 
   .featured-link:hover {
     transform: translateY(-3px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px -10px rgba(26, 26, 26, 0.2);
   }
 
   .featured-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--surface);
+    color: var(--text);
     backdrop-filter: blur(4px);
     padding: 0.25rem 0.75rem;
     border-radius: 999px;
@@ -187,7 +188,7 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
 
   .post-card-accent {
     width: 4px;
-    background: linear-gradient(180deg, var(--accent), #3b82f6);
+    background: linear-gradient(180deg, var(--accent), var(--brand-red));
     flex-shrink: 0;
   }
 

@@ -218,8 +218,8 @@ const canonical = "https://yourdomain.com/";
     inset: -40% -20% auto -20%;
     height: 120%;
     background:
-      radial-gradient(circle at 15% 30%, rgba(16, 185, 129, 0.10), transparent 45%),
-      radial-gradient(circle at 85% 20%, rgba(212, 43, 43, 0.10), transparent 45%);
+      radial-gradient(circle at 15% 30%, rgba(143, 174, 143, 0.10), transparent 45%),
+      radial-gradient(circle at 85% 20%, rgba(250, 164, 154, 0.08), transparent 45%);
     pointer-events: none;
     z-index: 0;
   }
@@ -251,10 +251,6 @@ const canonical = "https://yourdomain.com/";
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #ffffff 30%, #6ee7b7 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     color: var(--text);
     margin-bottom: 1.25rem;
   }
@@ -267,7 +263,7 @@ const canonical = "https://yourdomain.com/";
 
   .hero-subtitle {
     font-size: 1.125rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     margin-bottom: 2.25rem;
     line-height: 1.65;
     max-width: 32rem;
@@ -282,19 +278,19 @@ const canonical = "https://yourdomain.com/";
   .cta-primary {
     display: inline-block;
     background: var(--accent);
-    color: #022c22;
+    color: var(--primary);
     padding: 0.9rem 1.75rem;
     border-radius: var(--radius);
     text-decoration: none;
     font-weight: 700;
     transition: all 0.2s;
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25);
+    box-shadow: 0 4px 20px rgba(143, 174, 143, 0.25);
   }
 
   .cta-primary:hover {
     transform: translateY(-2px);
     background: var(--accent-hover);
-    box-shadow: 0 6px 26px rgba(16, 185, 129, 0.35);
+    box-shadow: 0 6px 26px rgba(143, 174, 143, 0.35);
   }
 
   .cta-secondary {
@@ -331,9 +327,9 @@ const canonical = "https://yourdomain.com/";
   }
 
   .visual-card:hover {
-    border-color: rgba(16, 185, 129, 0.45);
+    border-color: rgba(143, 174, 143, 0.55);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.6);
+    box-shadow: var(--shadow-lg);
   }
 
   .visual-icon {
@@ -344,7 +340,7 @@ const canonical = "https://yourdomain.com/";
     height: 3.25rem;
     margin: 0 auto 1rem;
     border-radius: 50%;
-    background: rgba(16, 185, 129, 0.12);
+    background: rgba(143, 174, 143, 0.12);
     color: var(--accent);
   }
 
@@ -352,12 +348,12 @@ const canonical = "https://yourdomain.com/";
     font-size: 0.9375rem;
     font-weight: 700;
     margin-bottom: 0.35rem;
-    color: #f1f5f9;
+    color: var(--text);
   }
 
   .visual-card p {
     font-size: 0.8125rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.4;
   }
 
@@ -395,7 +391,7 @@ const canonical = "https://yourdomain.com/";
 
   .section-intro p,
   .dashboard-preview-content p {
-    color: #94a3b8;
+    color: var(--text-secondary);
     font-size: 1.0625rem;
     line-height: 1.6;
   }
@@ -428,9 +424,9 @@ const canonical = "https://yourdomain.com/";
   }
 
   .channel-card:hover {
-    border-color: rgba(16, 185, 129, 0.45);
+    border-color: rgba(143, 174, 143, 0.55);
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.5);
+    box-shadow: var(--shadow-lg);
   }
 
   .channel-icon {
@@ -440,7 +436,7 @@ const canonical = "https://yourdomain.com/";
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 0.625rem;
-    background: rgba(16, 185, 129, 0.12);
+    background: rgba(143, 174, 143, 0.12);
     color: var(--accent);
     margin-bottom: 1rem;
   }
@@ -454,7 +450,7 @@ const canonical = "https://yourdomain.com/";
 
   .channel-card p {
     font-size: 0.875rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.5;
   }
 
@@ -484,13 +480,13 @@ const canonical = "https://yourdomain.com/";
   }
 
   .package-card:hover {
-    border-color: rgba(16, 185, 129, 0.4);
+    border-color: rgba(143, 174, 143, 0.4);
     transform: translateY(-3px);
   }
 
   .package-card--featured {
     border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent), 0 18px 40px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 0 1px var(--accent), 0 18px 40px rgba(143, 174, 143, 0.15);
   }
 
   .package-badge {
@@ -498,7 +494,7 @@ const canonical = "https://yourdomain.com/";
     top: -0.75rem;
     left: 2rem;
     background: var(--accent);
-    color: #022c22;
+    color: var(--primary);
     font-size: 0.6875rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -516,7 +512,7 @@ const canonical = "https://yourdomain.com/";
 
   .package-for {
     font-size: 0.875rem;
-    color: #94a3b8;
+    color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 1.25rem;
   }
@@ -535,7 +531,7 @@ const canonical = "https://yourdomain.com/";
     position: relative;
     padding-left: 1.5rem;
     font-size: 0.875rem;
-    color: #cbd5e1;
+    color: var(--text-secondary);
     line-height: 1.45;
   }
 
@@ -568,7 +564,7 @@ const canonical = "https://yourdomain.com/";
   .package-card--featured .package-cta {
     background: var(--accent);
     border-color: var(--accent);
-    color: #022c22;
+    color: var(--primary);
   }
 
   .package-card--featured .package-cta:hover {
@@ -598,7 +594,7 @@ const canonical = "https://yourdomain.com/";
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.6);
+    box-shadow: var(--shadow-lg);
   }
 
   .mock-header {
@@ -624,7 +620,7 @@ const canonical = "https://yourdomain.com/";
     margin-left: 0.5rem;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #94a3b8;
+    color: var(--text-secondary);
   }
 
   .mock-stats {
@@ -646,7 +642,7 @@ const canonical = "https://yourdomain.com/";
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #64748b;
+    color: var(--text-secondary);
     font-weight: 600;
   }
 
@@ -673,7 +669,7 @@ const canonical = "https://yourdomain.com/";
 
   .mock-bar {
     flex: 1;
-    background: linear-gradient(180deg, rgba(16, 185, 129, 0.9), rgba(16, 185, 129, 0.25));
+    background: linear-gradient(180deg, rgba(143, 174, 143, 0.9), rgba(143, 174, 143, 0.25));
     border-radius: 0.25rem 0.25rem 0 0;
   }
 
@@ -683,15 +679,15 @@ const canonical = "https://yourdomain.com/";
     padding: 3.5rem 2rem;
     border-radius: var(--radius);
     background:
-      radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.16), transparent 55%),
-      radial-gradient(circle at 85% 80%, rgba(212, 43, 43, 0.14), transparent 55%),
+      radial-gradient(circle at 20% 20%, rgba(143, 174, 143, 0.16), transparent 55%),
+      radial-gradient(circle at 85% 80%, rgba(250, 164, 154, 0.10), transparent 55%),
       var(--surface);
     border: 1px solid var(--border);
     text-align: center;
   }
 
   .cta-band p {
-    color: #94a3b8;
+    color: var(--text-secondary);
     max-width: 36rem;
     margin: 0 auto 1.75rem;
     line-height: 1.6;

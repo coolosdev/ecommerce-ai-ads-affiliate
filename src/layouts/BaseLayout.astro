@@ -23,7 +23,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#f7f5f0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -70,23 +70,23 @@ const {
 
 <style>
   :root {
-    --background: #020617;
-    --surface: #0f172a;
-    --surface-elev: #1e293b;
-    --border: #334155;
-    --border-hover: #475569;
-    --text: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --muted: #64748b;
-    --primary: #0f172a;
-    --secondary: #1e293b;
-    --accent: #10b981;
-    --accent-hover: #059669;
+    --background: #f7f5f0;
+    --surface: #ffffff;
+    --surface-elev: #f0ede6;
+    --border: #e2ddd3;
+    --border-hover: #c9c2b5;
+    --text: #1a1a1a;
+    --text-secondary: #5a5550;
+    --muted: #8a847d;
+    --primary: #1a1a1a;
+    --secondary: #f0ede6;
+    --accent: #8fae8f;
+    --accent-hover: #6f8f6f;
     --brand-red: #d42b2b;
-    --radius: 0.75rem;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --radius: 1.25rem;
+    --shadow-sm: 0 1px 3px 0 rgba(26, 26, 26, 0.06);
+    --shadow-md: 0 8px 24px -8px rgba(26, 26, 26, 0.12);
+    --shadow-lg: 0 20px 40px -16px rgba(26, 26, 26, 0.18);
   }
 
   * {
@@ -110,18 +110,22 @@ const {
   }
 
   .site-header {
-    background: rgba(2, 6, 23, 0.85);
-    border-bottom: 1px solid var(--border);
     position: sticky;
-    top: 0;
+    top: 0.75rem;
     z-index: 50;
+    margin: 0.75rem auto 0;
+    max-width: 1100px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--border);
+    border-radius: 999px;
     backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-md);
   }
 
   .header-inner {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 1.25rem 2rem;
+    padding: 0.6rem 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -185,19 +189,28 @@ const {
 
   .nav {
     display: flex;
-    align-items: center;
-    gap: 2rem;
+    gap: 0.25rem;
   }
 
   .nav a {
-    color: var(--text-secondary);
+    display: inline-flex;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s;
+    color: var(--text-secondary);
+    transition: color 0.2s, background 0.2s;
   }
 
   .nav a:hover {
-    color: var(--text);
+    color: var(--primary);
+    background: var(--surface-elev);
+  }
+
+  .nav a.active {
+    color: var(--primary);
+    background: var(--accent);
   }
 
   main {
