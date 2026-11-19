@@ -19,28 +19,62 @@ const canonical = "https://yourdomain.com/";
           <a href="/contact" class="cta-secondary">Book a Call</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="visual-card">
-          <div class="visual-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="m8.6 13.5 6.8 3.9"/><path d="m15.4 6.6-6.8 3.9"/></svg>
+      <div class="hero-auth">
+        <div class="auth-card">
+          <div class="auth-tabs" role="tablist" aria-label="Account access">
+            <button type="button" class="auth-tab auth-tab--active" data-auth-tab="signup" role="tab" aria-selected="true">Sign up</button>
+            <button type="button" class="auth-tab" data-auth-tab="login" role="tab" aria-selected="false">Log in</button>
           </div>
-          <h3>Omnichannel</h3>
-          <p>Every channel, one strategy</p>
+
+          <form class="auth-form" data-auth-panel="signup">
+            <h2>Start your free trial</h2>
+            <p class="auth-sub">Dashboard access, package tracking, and campaign reports.</p>
+            <label for="signup-name">Full name</label>
+            <input id="signup-name" name="name" type="text" placeholder="Jordan Blake" autocomplete="name" required />
+            <label for="signup-email">Work email</label>
+            <input id="signup-email" name="email" type="email" placeholder="you@brand.com" autocomplete="email" required />
+            <label for="signup-password">Create password</label>
+            <input id="signup-password" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" required minlength="8" />
+            <button type="submit" class="auth-submit">Create my account</button>
+            <p class="auth-fine">No card required · 14-day free trial</p>
+          </form>
+
+          <form class="auth-form" data-auth-panel="login" hidden>
+            <h2>Welcome back</h2>
+            <p class="auth-sub">Log in to see your campaigns and ad spend.</p>
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" placeholder="you@brand.com" autocomplete="email" required />
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+            <button type="submit" class="auth-submit">Log in</button>
+            <p class="auth-fine">Trouble signing in? Contact your account manager.</p>
+          </form>
         </div>
-        <div class="visual-card">
-          <div class="visual-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
-          </div>
-          <h3>Tracked</h3>
-          <p>Ad spend you can see</p>
+        <p class="auth-social">Trusted by 200+ growing brands</p>
+      </div>
+    </section>
+
+    <section class="hero-trust" aria-label="Why Partner Revenue Labs">
+      <div class="visual-card">
+        <div class="visual-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M18 22a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="m8.6 13.5 6.8 3.9"/><path d="m15.4 6.6-6.8 3.9"/></svg>
         </div>
-        <div class="visual-card">
-          <div class="visual-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
-          <h3>Fast Launch</h3>
-          <p>Live in weeks, not months</p>
+        <h3>Omnichannel</h3>
+        <p>Every channel, one strategy</p>
+      </div>
+      <div class="visual-card">
+        <div class="visual-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-6"/></svg>
         </div>
+        <h3>Tracked</h3>
+        <p>Ad spend you can see</p>
+      </div>
+      <div class="visual-card">
+        <div class="visual-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>Fast Launch</h3>
+        <p>Live in weeks, not months</p>
       </div>
     </section>
 
@@ -312,7 +346,7 @@ const canonical = "https://yourdomain.com/";
 
   .hero-visual {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
@@ -700,11 +734,216 @@ const canonical = "https://yourdomain.com/";
     flex-wrap: wrap;
   }
 
+  /* Auth widget */
+  .hero-auth {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-auth::before {
+    content: "";
+    position: absolute;
+    inset: -12px -12px -12px -12px;
+    background: radial-gradient(55% 55% at 75% 15%, rgba(143, 174, 143, 0.32), transparent 70%),
+      radial-gradient(45% 45% at 10% 95%, rgba(250, 164, 154, 0.20), transparent 70%);
+    filter: blur(16px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .auth-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 0.25rem);
+    padding: 1.75rem;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .auth-tabs {
+    display: inline-flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    background: var(--surface-elev);
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+  }
+
+  .auth-tab {
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+
+  .auth-tab:hover {
+    color: var(--text);
+  }
+
+  .auth-tab--active {
+    background: var(--surface);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .auth-form h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .auth-sub {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .auth-form label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+  }
+
+  .auth-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 1rem;
+    margin-bottom: 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--background);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .auth-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(143, 174, 143, 0.25);
+  }
+
+  .auth-form input::placeholder {
+    color: var(--muted);
+  }
+
+  .auth-submit {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: var(--primary);
+    color: #ffffff;
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .auth-submit:hover {
+    background: #000000;
+    transform: translateY(-1px);
+  }
+
+  .auth-fine {
+    color: var(--muted);
+    font-size: 0.75rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 0.85rem;
+  }
+
+  .auth-social {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 1rem;
+  }
+
+  .hero-trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0 2.5rem;
+  }
+
+  .hero-trust .visual-card {
+    padding: 1.25rem 1rem;
+  }
+
   @media (max-width: 640px) {
     .hero h1 { font-size: 2.25rem; }
     .section-intro h2,
     .dashboard-preview-content h2,
     .cta-band h2 { font-size: 1.6rem; }
     .hero-visual { grid-template-columns: 1fr; }
+    .hero-trust { grid-template-columns: 1fr; }
+  }
+
+  /* Responsive auth widget */
+  @media (min-width: 900px) {
+    .hero {
+      grid-template-columns: 1.35fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero-auth {
+      margin-top: 2rem;
+    }
   }
 </style>
+
+<script>
+  (function() {
+    const tabs = document.querySelectorAll('.auth-tab');
+    const forms = document.querySelectorAll('.auth-form');
+
+    if (!tabs.length || !forms.length) return;
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-auth-tab');
+        tabs.forEach(t => t.classList.remove('auth-tab--active'));
+        tab.classList.add('auth-tab--active');
+        forms.forEach(f => {
+          f.style.display = f.getAttribute('data-auth-panel') === target ? 'block' : 'none';
+        });
+      });
+    });
+
+    document.querySelector('.auth-tab--active')?.click();
+
+    forms.forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const fine = form.querySelector('.auth-fine');
+        const btn = form.querySelector('.auth-submit');
+        if (btn) btn.textContent = 'Welcome aboard — check your inbox';
+        if (fine) fine.textContent = 'Thanks! This is a demo widget — no data was sent.';
+        form.querySelectorAll('input').forEach(i => { i.value = ''; });
+      });
+    });
+  })();
+</script>
