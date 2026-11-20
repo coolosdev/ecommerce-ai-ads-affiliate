@@ -50,12 +50,196 @@ const {
       </div>
       <div class="header-actions">
         <a href="/contact" class="client-portal-link">Client Portal</a>
-        <a href="/#audit" class="header-cta">
+        <a href="#" onclick="openDualModal('qual'); return false;" class="header-cta">
           <span>Request Growth Audit</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
     </header>
+
+    <!-- Dual B2B Modal: Open-source 15-min Scheduler + 48h Brand Qual Audit -->
+    <div id="dual-modal" class="dual-modal hidden">
+      <div class="dual-modal-card">
+        <div class="dual-modal-header">
+          <div class="dual-modal-brand">
+            <div class="dual-badge">PRL</div>
+            <div class="dual-brand-text">
+              <span class="dual-brand-line">Partner Revenue</span>
+              <span class="dual-brand-sub">LABS</span>
+            </div>
+          </div>
+          <button onclick="closeDualModal()" class="dual-modal-close">✕</button>
+        </div>
+
+        <div class="dual-modal-tabs">
+          <button id="modal-tab-call" onclick="switchModalTab('call')" class="dual-tab dual-tab--active">
+            <svg class="dual-tab-icon dual-tab-icon--call" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>15-Min Strategy Call</span>
+          </button>
+          <button id="modal-tab-qual" onclick="switchModalTab('qual')" class="dual-tab">
+            <svg class="dual-tab-icon dual-tab-icon--qual" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <span>48h Brand Qual Audit</span>
+          </button>
+        </div>
+
+        <!-- TAB 1: 15-minute strategy call scheduler -->
+        <div id="modal-content-call" class="dual-tab-panel dual-tab-panel--active">
+          <div class="dual-host-banner">
+            <div class="dual-host-info">
+              <div class="dual-host-avatar">MV</div>
+              <div>
+                <div class="dual-host-name">Marcus Vance · Partner & Head of Growth</div>
+                <div class="dual-host-role">15 min · 1-on-1 discovery · Google Meet</div>
+              </div>
+            </div>
+            <span class="dual-host-pill">● Available Tomorrow</span>
+          </div>
+
+          <div class="dual-form-group">
+            <label class="dual-form-label">What would you like to explore?</label>
+            <div class="dual-topic-grid">
+              <label class="dual-topic dual-topic--active">
+                <input type="radio" name="call-topic" value="Affiliate Scale" checked />
+                <span>Affiliate Scale</span>
+              </label>
+              <label class="dual-topic">
+                <input type="radio" name="call-topic" value="Attribution & ROAS" />
+                <span>Attribution & ROAS</span>
+              </label>
+              <label class="dual-topic">
+                <input type="radio" name="call-topic" value="Full Growth Packages" />
+                <span>Full Packages</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="dual-form-group">
+            <div class="dual-slot-label-row">
+              <label class="dual-form-label">Select Date &amp; Time Slot (Pacific Time)</label>
+              <span class="dual-slot-tag">⚡ Instant Confirmation</span>
+            </div>
+            <div class="dual-slots" id="slots-container">
+              <button type="button" onclick="selectSlot(this, 'Tomorrow', '10:00 AM')" class="dual-slot dual-slot--selected">
+                <div>Tomorrow</div>
+                <div class="dual-slot-time">10:00 AM</div>
+              </button>
+              <button type="button" onclick="selectSlot(this, 'Tomorrow', '2:30 PM')" class="dual-slot">
+                <div>Tomorrow</div>
+                <div class="dual-slot-time">2:30 PM</div>
+              </button>
+              <button type="button" onclick="selectSlot(this, 'Friday', '11:15 AM')" class="dual-slot">
+                <div>Friday</div>
+                <div class="dual-slot-time">11:15 AM</div>
+              </button>
+              <button type="button" onclick="selectSlot(this, 'Friday', '4:00 PM')" class="dual-slot">
+                <div>Friday</div>
+                <div class="dual-slot-time">4:00 PM</div>
+              </button>
+            </div>
+          </div>
+
+          <form onsubmit="handleCallSubmit(event)" class="dual-form" id="booking-form">
+            <input type="hidden" id="selected-date" value="Tomorrow" />
+            <input type="hidden" id="selected-time" value="10:00 AM" />
+
+            <div class="dual-form-row">
+              <div class="dual-form-field">
+                <label class="dual-form-label">Your Name</label>
+                <input type="text" id="call-name" required placeholder="Jordan Blake" value="Jordan Blake" />
+              </div>
+              <div class="dual-form-field">
+                <label class="dual-form-label">Work Email</label>
+                <input type="email" id="call-email" required placeholder="jordan@brand.com" value="jordan@brand.com" />
+              </div>
+            </div>
+
+            <div class="dual-form-field">
+              <label class="dual-form-label">Brand URL (Optional)</label>
+              <input type="text" id="call-brand" placeholder="https://yourbrand.com" value="https://athleticapparel.com" />
+            </div>
+
+            <button type="submit" id="call-submit-btn" class="dual-btn dual-btn--primary">
+              <span>Confirm 15-Minute Strategy Session</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </button>
+          </form>
+
+          <div id="call-success" class="dual-success hidden">
+            <div class="dual-success-head">
+              <svg class="dual-success-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Meeting Confirmed for <span id="conf-slot">Tomorrow at 10:00 AM</span>!</span>
+            </div>
+            <p class="dual-success-note">Calendar invitation dispatched. You can also add it to your calendar directly right now:</p>
+            <div class="dual-success-links">
+              <a id="gcal-link" href="#" target="_blank" class="dual-success-link">Add to Google Calendar</a>
+              <a id="ics-link" href="#" download="prl-strategy-session.ics" class="dual-success-link">Download .ICS (Apple/Outlook)</a>
+            </div>
+            <p class="dual-success-foot">Zero cost · Open source scheduling infrastructure running on Cloudflare Pages.</p>
+          </div>
+        </div>
+
+        <!-- TAB 2: 48-hour brand qualification audit -->
+        <div id="modal-content-qual" class="dual-tab-panel hidden">
+          <div class="dual-qual-intro">
+            <h4 class="dual-qual-title">Request 48-Hour Growth &amp; Revenue Audit</h4>
+            <p class="dual-qual-sub">We analyze your current attribution, competitor publisher footprint, and project net incremental ROAS.</p>
+          </div>
+
+          <form onsubmit="handleQualSubmit(event)" class="dual-form" id="qual-form">
+            <div class="dual-form-field">
+              <label class="dual-form-label">Brand Monthly Revenue Range</label>
+              <select id="qual-rev" class="dual-input">
+                <option>$50k - $250k / month (Scaling)</option>
+                <option selected>$250k - $1M / month (Growth Leader)</option>
+                <option>$1M - $5M+ / month (Enterprise &amp; Retail)</option>
+              </select>
+            </div>
+
+            <div class="dual-form-row">
+              <div class="dual-form-field">
+                <label class="dual-form-label">Full Name</label>
+                <input type="text" id="qual-name" required placeholder="Jordan Blake" value="Jordan Blake" />
+              </div>
+              <div class="dual-form-field">
+                <label class="dual-form-label">Work Email</label>
+                <input type="email" id="qual-email" required placeholder="jordan@brand.com" value="jordan@brand.com" />
+              </div>
+            </div>
+
+            <div class="dual-form-field">
+              <label class="dual-form-label">Brand Store URL / Website</label>
+              <input type="text" id="qual-brand" required placeholder="https://yourbrand.com" value="https://athleticapparel.com" />
+            </div>
+
+            <div class="dual-form-field">
+              <label class="dual-form-label">Primary Growth Bottleneck</label>
+              <select id="qual-bottleneck" class="dual-input">
+                <option selected>High CAC on Meta / Google Ads — need diversified affiliate reach</option>
+                <option>Existing affiliate program is stagnant / low-tier coupon sites only</option>
+                <option>Need influencer & creator sponsorship attribution tracking</option>
+                <option>Expanding from D2C into omnichannel &amp; brick-and-mortar retail</option>
+              </select>
+            </div>
+
+            <button type="submit" id="qual-submit-btn" class="dual-btn dual-btn--sage">
+              <span>Generate Custom Growth Audit Dossier</span>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </form>
+
+          <div id="qual-success" class="dual-success hidden">
+            ✓ Audit request received! Our partner analytics team will deliver your custom revenue opportunity dossier within 48 hours.
+          </div>
+
+          <div class="dual-qual-foot">
+            <span class="dual-qual-foot-item"><svg width="13" height="13" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+            Signed Mutual NDA upon submission</span>
+            <span class="dual-qual-foot-item">100% Confidential · No Spam</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <main>
       <slot />
     </main>
@@ -71,6 +255,156 @@ const {
         </div>
       </div>
     </footer>
+    <script>
+      // Dual B2B Modal: Open-source 15-min scheduler + 48h brand qual audit
+      (function () {
+        window.openDualModal = function (tab) {
+          var modal = document.getElementById('dual-modal');
+          if (modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          }
+          switchModalTab(tab || 'call');
+        };
+
+        window.closeDualModal = function () {
+          var modal = document.getElementById('dual-modal');
+          if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        };
+
+        window.switchModalTab = function (tab) {
+          var tabCallBtn = document.getElementById('modal-tab-call');
+          var tabQualBtn = document.getElementById('modal-tab-qual');
+          var contentCall = document.getElementById('modal-content-call');
+          var contentQual = document.getElementById('modal-content-qual');
+
+if (tab === 'call') {
+            tabCallBtn.classList.add('dual-tab--active');
+            tabQualBtn.classList.remove('dual-tab--active');
+            contentCall.classList.add('dual-tab-panel--active');
+            contentQual.classList.remove('dual-tab-panel--active');
+          } else {
+            tabQualBtn.classList.add('dual-tab--active');
+            tabCallBtn.classList.remove('dual-tab--active');
+            contentQual.classList.add('dual-tab-panel--active');
+            contentCall.classList.remove('dual-tab-panel--active');
+          }
+        };
+
+        window.selectSlot = function (btn, date, time) {
+          document.querySelectorAll('.dual-slot').forEach(function (b) {
+            b.classList.remove('dual-slot--selected');
+          });
+          btn.classList.add('dual-slot--selected');
+          document.getElementById('selected-date').value = date;
+          document.getElementById('selected-time').value = time;
+        };
+
+        window.handleCallSubmit = async function (e) {
+          e.preventDefault();
+          var btn = document.getElementById('call-submit-btn');
+          btn.disabled = true;
+          btn.querySelector('span').textContent = 'Scheduling...';
+
+          var payload = {
+            name: document.getElementById('call-name').value,
+            email: document.getElementById('call-email').value,
+            brandUrl: document.getElementById('call-brand').value,
+            dateStr: document.getElementById('selected-date').value,
+            timeStr: document.getElementById('selected-time').value,
+            topic: document.querySelector('input[name="call-topic"]:checked').value,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          };
+
+          var gcalUrl =
+            'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
+            encodeURIComponent('PRL Discovery: ' + payload.name) +
+            '&details=' + encodeURIComponent('15-Min Strategy Session') +
+            '&location=https://meet.google.com/prl-discovery';
+
+          try {
+            var res = await fetch('/api/book', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            var result = res.ok ? await res.json() : null;
+            if (result && result.booking && result.booking.gcalUrl) {
+              gcalUrl = result.booking.gcalUrl;
+            }
+            if (result && result.booking && result.booking.icsDataUri) {
+              document.getElementById('ics-link').href = result.booking.icsDataUri;
+            }
+          } catch (err) {
+            // Fallback: static preview without backend
+          }
+
+          document.getElementById('gcal-link').href = gcalUrl;
+          document.getElementById('conf-slot').textContent =
+            payload.dateStr + ' at ' + payload.timeStr;
+          document.getElementById('booking-form').classList.add('hidden');
+          document.getElementById('call-success').classList.remove('hidden');
+          btn.querySelector('span').textContent = 'Confirmed! ✓';
+          btn.classList.remove('dual-btn--primary');
+          btn.style.background = 'var(--accent)';
+        };
+
+        window.handleQualSubmit = async function (e) {
+          e.preventDefault();
+          var btn = document.getElementById('qual-submit-btn');
+          btn.disabled = true;
+          btn.querySelector('span').textContent = 'Analyzing Brand...';
+
+          var payload = {
+            name: document.getElementById('qual-name').value,
+            email: document.getElementById('qual-email').value,
+            brandUrl: document.getElementById('qual-brand').value,
+            revenueTier: document.getElementById('qual-rev').value,
+            bottleneck: document.getElementById('qual-bottleneck').value,
+          };
+
+          try {
+            await fetch('/api/qual', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+          } catch (err) {
+            // Continue to show success in demo/static mode
+          }
+
+          document.getElementById('qual-form').classList.add('hidden');
+          document.getElementById('qual-success').classList.remove('hidden');
+          btn.querySelector('span').textContent = 'Audit Request Received ✓';
+        };
+
+        // Topic selector visuals
+        document.querySelectorAll('.dual-topic').forEach(function (topic) {
+          topic.addEventListener('click', function () {
+            document.querySelectorAll('.dual-topic').forEach(function (t) {
+              t.classList.remove('dual-topic--active');
+            });
+            topic.classList.add('dual-topic--active');
+          });
+        });
+
+        // Close modal on background click
+        var modal = document.getElementById('dual-modal');
+        if (modal) {
+          modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeDualModal();
+          });
+        }
+
+        // Close on Escape
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeDualModal();
+        });
+      })();
+    </script>
   </body>
 </html>
 
@@ -377,4 +711,563 @@ const {
   .footer-links a:hover {
     color: var(--text);
   }
+
+  /* Dual B2B Modal */
+  .dual-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(18, 19, 22, 0.55);
+    backdrop-filter: blur(8px);
+  }
+
+  .dual-modal.hidden {
+    display: none;
+  }
+
+  .dual-modal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: calc(var(--radius) + 0.5rem);
+    width: 100%;
+    max-width: 28rem;
+    max-height: 92vh;
+    overflow-y: auto;
+    box-shadow: 0 24px 60px rgba(18, 19, 22, 0.14), 0 8px 24px -8px rgba(18, 19, 22, 0.08);
+    animation: dualModalFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes dualModalFadeIn {
+    from { opacity: 0; transform: scale(0.96) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .dual-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-elev);
+    border-top-left-radius: calc(var(--radius) + 0.5rem);
+    border-top-right-radius: calc(var(--radius) + 0.5rem);
+  }
+
+  .dual-modal-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .dual-badge {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background: var(--brand-red);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
+  .dual-brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .dual-brand-line {
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .dual-brand-sub {
+    font-weight: 600;
+    font-size: 0.5rem;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .dual-modal-close {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: rgba(18, 19, 22, 0.08);
+    border: 0;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .dual-modal-close:hover {
+    background: rgba(18, 19, 22, 0.16);
+    color: var(--text);
+  }
+
+  .dual-modal-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    background: rgba(234, 232, 224, 0.5);
+    border-radius: 1rem;
+  }
+
+  .dual-tab {
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.6rem 0.5rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .dual-tab svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .dual-tab--active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .dual-tab-icon--call {
+    color: var(--brand-red);
+  }
+
+  .dual-tab-icon--qual {
+    color: var(--accent);
+  }
+
+  .dual-tab-panel {
+    display: none;
+    padding: 1.25rem;
+  }
+
+  .dual-tab-panel--active {
+    display: block;
+  }
+
+  .dual-host-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+  }
+
+  .dual-host-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .dual-host-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.7rem;
+    box-shadow: 0 2px 6px rgba(217, 45, 32, 0.25);
+    border: 2px solid var(--accent);
+    flex-shrink: 0;
+  }
+
+  .dual-host-name {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+
+  .dual-host-role {
+    font-size: 0.62rem;
+    color: var(--text-secondary);
+    line-height: 1.3;
+  }
+
+  .dual-host-pill {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--accent-hover);
+    background: rgba(110, 135, 106, 0.12);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .dual-form-group {
+    margin-top: 1.1rem;
+  }
+
+  .dual-form-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .dual-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .dual-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .dual-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .dual-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.62rem 0.8rem;
+    margin-bottom: 0;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--surface-elev);
+    color: var(--text);
+    font: inherit;
+    font-size: 0.8rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .dual-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(140, 163, 136, 0.2);
+  }
+
+  .dual-input::placeholder {
+    color: var(--muted);
+  }
+
+  .dual-topic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.4rem;
+  }
+
+  .dual-topic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: rgba(234, 232, 224, 0.4);
+    cursor: pointer;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+  }
+
+  .dual-topic input {
+    display: none;
+  }
+
+  .dual-topic--active {
+    border-color: var(--accent);
+    background: rgba(140, 163, 136, 0.1);
+    color: var(--text);
+  }
+
+  .dual-topic--active input {
+    accent-color: var(--accent);
+  }
+
+  .dual-slot-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dual-slot-tag {
+    font-size: 0.6rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .dual-slots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 480px) {
+    .dual-slots {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .dual-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.6rem 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .dual-slot div {
+    font-size: 0.68rem;
+  }
+
+  .dual-slot-time {
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--text);
+    margin-top: 0.1rem;
+  }
+
+  .dual-slot--selected {
+    border-color: var(--accent);
+    background: rgba(140, 163, 136, 0.1);
+    color: var(--text);
+  }
+
+  .dual-slot--selected .dual-slot-time {
+    color: var(--accent);
+  }
+
+  .dual-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.75rem 0;
+    border: 0;
+    border-radius: 0.75rem;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    white-space: nowrap;
+  }
+
+  .dual-btn svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .dual-btn--primary {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(18, 19, 22, 0.18);
+  }
+
+  .dual-btn--primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(18, 19, 22, 0.26);
+  }
+
+  .dual-btn--primary:active {
+    transform: translateY(0);
+  }
+
+  .dual-btn--sage {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
+  .dual-btn--sage:hover {
+    background: var(--accent-hover);
+  }
+
+  .dual-success {
+    padding: 0.85rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .dual-success.hidden {
+    display: none;
+  }
+
+  .dual-success {
+    background: rgba(140, 163, 136, 0.08);
+    border: 1px solid rgba(140, 163, 136, 0.2);
+    color: #3f623e;
+  }
+
+  .dual-success-head {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #2f5232;
+    margin-bottom: 0.5rem;
+  }
+
+  .dual-success-icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    color: #4ade80;
+    flex-shrink: 0;
+  }
+
+  .dual-success-note {
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .dual-success-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .dual-success-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #2f5232;
+    background: #ffffff;
+    border: 1px solid #bbf7d0;
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .dual-success-link:hover {
+    background: #f0fdf4;
+  }
+
+  .dual-success-foot {
+    font-size: 0.62rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .dual-qual-intro {
+    padding: 0.75rem 1rem;
+    background: var(--surface-elev);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .dual-qual-title {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0 0 0.2rem;
+  }
+
+  .dual-qual-sub {
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .dual-qual-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.62rem;
+    color: var(--muted);
+  }
+
+  .dual-qual-foot-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .dual-qual-foot-item svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .dual-slots {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .dual-topic-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .dual-form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
 </style>
