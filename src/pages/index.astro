@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Partner Revenue Labs — Online Marketing Agency";
 const description = "We help up-and-coming brands, sponsorships, and brick-and-mortar retailers grow online through advertising packages across social, YouTube, live streaming, and marketplaces — with a dashboard to track every dollar.";
-const canonical = "https://yourdomain.com/";
+const canonical = "https://partner-revenue-labs.pages.dev/";
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical}>
@@ -29,7 +29,7 @@ const canonical = "https://yourdomain.com/";
               <span>See Our Packages</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
             </a>
-            <a href="#" onclick="openDualModal('call'); return false;" class="cta-secondary">
+            <a href="#" data-open-modal="call" class="cta-secondary">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cta-secondary-icon"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
               <span>Book a Strategy Call</span>
             </a>
@@ -63,7 +63,7 @@ const canonical = "https://yourdomain.com/";
             <button type="button" class="panel-tab" data-hero-mode="visual" role="tab" aria-selected="false">Network</button>
           </div>
 
-          <div class="hero-view" data-hero-view="dashboard">
+          <div class="hero-view hero-view--active" data-hero-view="dashboard">
             <div class="glass-card">
               <div class="tel-head">
                 <div class="tel-head-left">
@@ -150,7 +150,7 @@ const canonical = "https://yourdomain.com/";
             </div>
           </div>
 
-          <div class="hero-view" data-hero-view="form" hidden>
+          <div class="hero-view" data-hero-view="form">
             <div class="glass-card">
               <div class="audit-head">
                 <div class="audit-tabs">
@@ -216,7 +216,7 @@ const canonical = "https://yourdomain.com/";
             </div>
           </div>
 
-          <div class="hero-view" data-hero-view="visual" hidden>
+          <div class="hero-view" data-hero-view="visual">
             <div class="glass-card">
               <div class="visual-stage">
                 <svg class="network-art" viewBox="0 0 400 250" fill="none" aria-hidden="true">
@@ -250,7 +250,7 @@ const canonical = "https://yourdomain.com/";
       </div>
     </section>
 
-    <section class="partner-marquee" aria-label="Verified partner networks">
+    <section class="partner-marquee container" aria-label="Verified partner networks">
       <div class="partner-marquee-inner">
         <span class="partner-marquee-label">Trusted by growth teams across 200+ brands &amp; publishers</span>
         <div class="partner-logos">
@@ -262,9 +262,8 @@ const canonical = "https://yourdomain.com/";
         </div>
       </div>
     </section>
-  </div>
 
-    <section class="roi-section" id="calculator">
+    <section class="roi-section container" id="calculator">
       <div class="roi-intro">
         <span class="roi-eyebrow">Financial Impact Model</span>
         <h2>Calculate Your Incremental Partner Lift</h2>
@@ -277,7 +276,7 @@ const canonical = "https://yourdomain.com/";
               <label>Monthly Ad &amp; Growth Budget</label>
               <span id="spend-val" class="roi-slider-value">$100,000 / mo</span>
             </div>
-            <input type="range" id="spend-slider" min="20000" max="500000" step="10000" value="100000" oninput="updateCalc()" />
+            <input type="range" id="spend-slider" min="20000" max="500000" step="10000" value="100000" />
             <div class="roi-slider-ticks"><span>$20k</span><span>$250k</span><span>$500k+</span></div>
           </div>
           <div class="roi-slider">
@@ -285,7 +284,7 @@ const canonical = "https://yourdomain.com/";
               <label>Current Affiliate Channel Contribution</label>
               <span id="affiliate-val" class="roi-slider-value">10% of revenue</span>
             </div>
-            <input type="range" id="affiliate-slider" min="0" max="30" step="5" value="10" oninput="updateCalc()" />
+            <input type="range" id="affiliate-slider" min="0" max="30" step="5" value="10" />
             <div class="roi-slider-ticks"><span>0% (None)</span><span>15% (Moderate)</span><span>30%+ (Mature)</span></div>
           </div>
           <div class="roi-note">
@@ -295,17 +294,17 @@ const canonical = "https://yourdomain.com/";
         </div>
         <div class="roi-outcome">
           <div class="roi-outcome-label">Projected 12-Month GMV</div>
-          <div id="projected-rev" class="roi-outcome-value">$1,840,000</div>
+          <div id="projected-rev" class="roi-outcome-value">$545,867</div>
           <div class="roi-outcome-sub">Estimated verified gross sales</div>
           <div class="roi-outcome-row">
             <span>Net Return On Ad Spend:</span>
-            <span class="roi-outcome-mono">4.62x</span>
+            <span class="roi-outcome-mono">5.46x</span>
           </div>
           <div class="roi-outcome-row">
             <span>New High-Tier Publishers:</span>
             <span class="roi-outcome-mono">40 - 75 Active</span>
           </div>
-<a href="#" onclick="openDualModal('qual'); return false;" class="roi-cta">
+<a href="#" data-open-modal="qual" class="roi-cta">
   <span>Lock In This Projection</span>
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
 </a>
@@ -313,7 +312,7 @@ const canonical = "https://yourdomain.com/";
       </div>
     </section>
 
-    <section class="channels-section">
+    <section class="channels-section container">
       <div class="section-intro">
         <span class="section-eyebrow">WHERE WE PUT YOUR BRAND</span>
         <h2>Exposure across the channels your customers live in</h2>
@@ -365,7 +364,7 @@ const canonical = "https://yourdomain.com/";
       </div>
     </section>
 
-    <section class="packages-section">
+    <section class="packages-section container">
       <div class="section-intro">
         <span class="section-eyebrow">ADVERTISING PACKAGES</span>
         <h2>Pick a package. We handle the rest.</h2>
@@ -409,7 +408,7 @@ const canonical = "https://yourdomain.com/";
       </div>
     </section>
 
-    <section class="dashboard-preview-section">
+    <section class="dashboard-preview-section container" id="tech">
       <div class="dashboard-preview-content">
         <span class="section-eyebrow">YOUR NUMBERS, LIVE</span>
         <h2>A dashboard that makes ad spend make sense.</h2>
@@ -453,7 +452,7 @@ const canonical = "https://yourdomain.com/";
       </div>
     </section>
 
-    <section class="cta-band">
+    <section class="cta-band container">
       <h2>Ready to turn attention into revenue?</h2>
       <p>Tell us about your brand — online, in-store, or both — and we'll map out the fastest path to reach.</p>
       <div class="cta-band-actions">
@@ -468,7 +467,7 @@ const canonical = "https://yourdomain.com/";
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 3rem;
   }
 
   /* Hero Section */
@@ -1761,27 +1760,13 @@ const canonical = "https://yourdomain.com/";
   }
 
   /* Responsive auth widget */
-  @media (min-width: 900px) {
-    .hero {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-    .hero-inner {
-      grid-template-columns: minmax(0, 1fr) 440px;
-      max-width: none;
-      padding: 0 2rem;
-      margin: 0;
-      align-items: start;
-    }
-    .hero-auth {
-      justify-self: end;
-      align-self: start;
-      max-width: 440px;
-      margin: 0 2rem;
-    }
-    .hero-content {
-      max-width: 100%;
-    }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2.25rem; }
+    .section-intro h2,
+    .dashboard-preview-content h2,
+    .cta-band h2 { font-size: 1.6rem; }
+    .hero-visual { grid-template-columns: 1fr; }
+    .hero-trust { grid-template-columns: 1fr; }
   }
 </style>
 
@@ -1792,7 +1777,7 @@ const canonical = "https://yourdomain.com/";
     const panelViews = document.querySelectorAll('.hero-view');
 
     if (panelTabs.length && panelViews.length) {
-      function setPanelMode(mode) {
+      function setPanelMode(mode: string) {
         panelTabs.forEach(t => {
           const active = t.getAttribute('data-hero-mode') === mode;
           t.classList.toggle('panel-tab--active', active);
@@ -1805,7 +1790,7 @@ const canonical = "https://yourdomain.com/";
       }
 
       panelTabs.forEach(tab => {
-        tab.addEventListener('click', () => setPanelMode(tab.getAttribute('data-hero-mode')));
+        tab.addEventListener('click', () => setPanelMode(tab.getAttribute('data-hero-mode') || 'dashboard'));
       });
 
       // Hash handler: /#audit opens the Growth Audit view
@@ -1820,30 +1805,31 @@ const canonical = "https://yourdomain.com/";
     }
 
     // ROI calculator
-    const spendSlider = document.getElementById('spend-slider');
-    const affiliateSlider = document.getElementById('affiliate-slider');
+    const spendSlider = document.getElementById('spend-slider') as HTMLInputElement | null;
+    const affiliateSlider = document.getElementById('affiliate-slider') as HTMLInputElement | null;
     const spendVal = document.getElementById('spend-val');
     const affiliateVal = document.getElementById('affiliate-val');
     const projectedRev = document.getElementById('projected-rev');
 
-    if (spendSlider && affiliateSlider && projectedRev) {
-      function fmt(n) {
-        if (n >= 1000000) return '$' + (n / 1000000).toFixed(2) + 'M';
-        return '$' + n.toLocaleString('en-US');
+    if (spendSlider && affiliateSlider && spendVal && affiliateVal && projectedRev) {
+      function fmt(n: number) {
+        const rounded = Math.round(n);
+        if (rounded >= 1000000) return '$' + (rounded / 1000000).toFixed(2) + 'M';
+        return '$' + rounded.toLocaleString('en-US');
       }
 
       function updateCalc() {
-        const spend = parseInt(spendSlider.value, 10);
-        const affPct = parseInt(affiliateSlider.value, 10);
+        const spend = parseInt(spendSlider!.value, 10);
+        const affPct = parseInt(affiliateSlider!.value, 10);
 
-        spendVal.textContent = '$' + spend.toLocaleString('en-US') + ' / mo';
-        affiliateVal.textContent = affPct + '% of revenue';
+        spendVal!.textContent = '$' + spend.toLocaleString('en-US') + ' / mo';
+        affiliateVal!.textContent = affPct + '% of revenue';
 
         // PRL benchmark: 4.6x ROAS, 28% net incremental discovery reach
         const roas = 4.6;
         const discovery = 0.28;
         const gmv = spend * roas * (1 + discovery * (1 - affPct / 30));
-        projectedRev.textContent = fmt(gmv);
+        projectedRev!.textContent = fmt(gmv);
 
         const roasNet = (gmv / spend).toFixed(2);
         const row = document.querySelector('.roi-outcome-row');
@@ -1856,11 +1842,12 @@ const canonical = "https://yourdomain.com/";
       updateCalc();
       spendSlider.addEventListener('input', updateCalc);
       affiliateSlider.addEventListener('input', updateCalc);
+      (window as any).updateCalc = updateCalc;
     }
 
     // Auth widget (legacy — kept for compatibility)
     const tabs = document.querySelectorAll('.auth-tab');
-    const forms = document.querySelectorAll('.auth-form');
+    const forms = document.querySelectorAll<HTMLElement>('.auth-form');
 
     if (tabs.length && forms.length) {
       tabs.forEach(tab => {
@@ -1874,7 +1861,7 @@ const canonical = "https://yourdomain.com/";
         });
       });
 
-      document.querySelector('.auth-tab--active')?.click();
+      document.querySelector<HTMLElement>('.auth-tab--active')?.click();
 
       forms.forEach(form => {
         form.addEventListener('submit', e => {
@@ -1883,7 +1870,7 @@ const canonical = "https://yourdomain.com/";
           const btn = form.querySelector('.auth-submit');
           if (btn) btn.textContent = 'Welcome aboard — check your inbox';
           if (fine) fine.textContent = 'Thanks! This is a demo widget — no data was sent.';
-          form.querySelectorAll('input').forEach(i => { i.value = ''; });
+          form.querySelectorAll<HTMLInputElement>('input').forEach(i => { i.value = ''; });
         });
       });
     }

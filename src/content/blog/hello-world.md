@@ -54,4 +54,4 @@ After 3 months using this stack, I reclaimed 20+ hours/week and increased my Sho
 - **Choose tools that integrate**: Zapier + Make + Perplexity + Gamma + Fireflies all connect via Zapier/Make.
 - **Track ROI**: Measure time saved vs. subscription costs.
 
-Want to dive deeper? Check out my full guide on [tool-specific workflows](https://yourdomain.com/blog).
+Want to dive deeper? Check out my full guide on [tool-specific workflows](/blog).

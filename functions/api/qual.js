@@ -3,6 +3,11 @@
  * Handles zero-cost 48-Hour Brand Qualification Audit submissions.
  */
 
+function escapeHtml(value) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  return String(value || '').replace(/[&<>"']/g, (c) => map[c]);
+}
+
 export async function onRequestOptions() {
   return new Response(null, {
     status: 204,
@@ -50,10 +55,10 @@ export async function onRequestPost(context) {
               <div style="font-family: -apple-system, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; background: #FAF9F5; border-radius: 16px; border: 1px solid #E8E6DF;">
                 <div style="background: #D92D20; color: white; width: 32px; height: 32px; border-radius: 6px; text-align: center; line-height: 32px; font-weight: bold; font-size: 13px;">PRL</div>
                 <h2 style="color: #121316; margin-top: 16px;">48-Hour Growth Audit Dossier Initialized</h2>
-                <p style="color: #555;">Hi ${name}, our analytics team has received your audit submission for <strong>${brandUrl}</strong>.</p>
+                <p style="color: #555;">Hi ${escapeHtml(name)}, our analytics team has received your audit submission for <strong>${escapeHtml(brandUrl)}</strong>.</p>
                 <div style="background: white; padding: 16px; border-radius: 12px; margin: 20px 0; border: 1px solid #EEE;">
-                  <p style="margin: 0 0 6px 0;"><strong>Revenue Tier:</strong> ${revenueTier || 'N/A'}</p>
-                  <p style="margin: 0 0 6px 0;"><strong>Bottleneck:</strong> ${bottleneck || 'N/A'}</p>
+                  <p style="margin: 0 0 6px 0;"><strong>Revenue Tier:</strong> ${escapeHtml(revenueTier || 'N/A')}</p>
+                  <p style="margin: 0 0 6px 0;"><strong>Bottleneck:</strong> ${escapeHtml(bottleneck || 'N/A')}</p>
                   <p style="margin: 0; color: #8CA388; font-weight: bold;">🔒 Status: Mutual NDA Active</p>
                 </div>
                 <p style="color: #888; font-size: 12px;">Your bespoke revenue opportunity dossier will be delivered within 48 hours.</p>

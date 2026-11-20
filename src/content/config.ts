@@ -1,5 +1,4 @@
-import { defineCollection } from "astro:content";
-import { z } from "zod";
+import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
   type: "content",

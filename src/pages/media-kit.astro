@@ -4,17 +4,11 @@ import { getCollection } from "astro:content";
 
 const title = "Media Kit";
 const description = "Sponsorship & press materials: executive summary, audience metrics, content plan, tech stack, partnerships, and asset download links.";
-const canonical = "https://yourdomain.com/media-kit";
+const canonical = "https://partner-revenue-labs.pages.dev/media-kit";
 
 const posts = await getCollection("blog");
 const sorted = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 const featured = sorted.find((p) => p.data.featured) ?? sorted[0];
-
-const meta: Record<string, unknown> = {
-  title,
-  description,
-  canonical,
-};
 
 ---
 
@@ -84,7 +78,7 @@ const meta: Record<string, unknown> = {
           <li><strong>Advertising packages</strong>: Launch ($1,500/mo), Scale ($3,500/mo), and Dominate (custom) with transparent scope and ad spend.</li>
           <li><strong>Client dashboard</strong>: real-time preview of ad spend, ROAS, impressions, conversions, and channel performance — available with every package.</li>
           <li><strong>Case studies &amp; insights</strong>: ongoing breakdowns of campaigns, channel results, and live-shopping activations at `/blog` (Insights).</li>
-          <li><strong>SEO</strong>: Per-page `<title>`, `description`, Open Graph & Twitter cards, canonical URLs, Zod-validated front-matter, `astro:content` collection config.</li>
+          <li><strong>SEO</strong>: Per-page <code>&lt;title&gt;</code>, description, Open Graph &amp; Twitter cards, canonical URLs, Zod-validated front-matter, <code>astro:content</code> collection config.</li>
         </ul>
       </div>
 

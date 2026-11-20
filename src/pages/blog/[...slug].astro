@@ -11,12 +11,14 @@ export async function getStaticPaths() {
 }
 
 const { post, slug } = Astro.props;
+const content = post ? await post.render() : null;
+const Content = content ? content.Content : null;
 ---
 
 <BaseLayout
   title={post?.data.title ?? "Article"}
   description={post?.data.description ?? ""}
-  canonical={`https://yourdomain.com/${slug}`}
+  canonical={`https://partner-revenue-labs.pages.dev/${slug}`}
 >
   <div class="container">
     {post ? (
@@ -49,15 +51,15 @@ const { post, slug } = Astro.props;
         </header>
 
         <div class="article-content">
-          <div set:html={post.render().html} />
+          {Content && <Content />}
         </div>
 
         <footer class="article-footer">
           <div class="share-section">
             <h3>Share this guide</h3>
             <div class="share-buttons">
-              <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://yourdomain.com/blog/${slug}`)}`} target="_blank" rel="noopener" class="share-btn twitter">Share on X</a>
-              <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://yourdomain.com/blog/${slug}`)}`} target="_blank" rel="noopener" class="share-btn linkedin">Share on LinkedIn</a>
+              <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.data.title)}&url=${encodeURIComponent(`https://partner-revenue-labs.pages.dev/blog/${slug}`)}`} target="_blank" rel="noopener" class="share-btn twitter">Share on X</a>
+              <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://partner-revenue-labs.pages.dev/blog/${slug}`)}`} target="_blank" rel="noopener" class="share-btn linkedin">Share on LinkedIn</a>
             </div>
           </div>
 

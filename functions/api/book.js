@@ -72,7 +72,8 @@ function resolveDate(label, timeZone) {
     } else {
       const parsed = Date.parse(label);
       if (!isNaN(parsed)) {
-        return new Date(parsed);
+        const pd = new Date(parsed);
+        return { year: pd.getUTCFullYear(), month: pd.getUTCMonth() + 1, day: pd.getUTCDate() };
       }
       base += 86400000;
     }
@@ -130,6 +131,26 @@ function icsStamp(date) {
   );
 }
 
+function escapeIcsText(value) {
+  return String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/\r?\n/g, '\\n')
+    .replace(/,/g, '\\,')
+    .replace(/;/g, '\\;');
+}
+
+function escapeHtml(value) {
+  const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  return String(value || '').replace(/[&<>"']/g, (c) => map[c]);
+}
+
+function toBase64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+  return btoa(binary);
+}
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -181,18 +202,20 @@ export async function onRequestPost(context) {
       timeZone: DEFAULT_TZ,
     });
 
-    const meetingTitle = `PRL Growth Discovery: ${name} & Partner Revenue Labs`;
+    const safeName = escapeIcsText(name);
+    const safeEmail = String(email).replace(/[\r\n]+/g, ' ');
+    const meetingTitle = `PRL Growth Discovery: ${safeName} & Partner Revenue Labs`;
     const meetingDesc = [
       '15-Minute Strategy Session with Partner Revenue Labs.',
       '',
-      `Attendee: ${name} (${email})`,
-      `Brand: ${brandUrl || 'N/A'}`,
-      `Topic Focus: ${topic || 'Affiliate & Media Scaling'}`,
+      `Attendee: ${safeName} (${safeEmail})`,
+      `Brand: ${escapeIcsText(brandUrl || 'N/A')}`,
+      `Topic Focus: ${escapeIcsText(topic || 'Affiliate & Media Scaling')}`,
       `Scheduled: ${displayDate} at ${displayTime} (Pacific Time)`,
       'Meeting Link: https://meet.google.com/prl-discovery',
     ].join('\\n');
 
-    const uid = `prl-${Date.now()}-${Math.random().toString(36).substr(2, 9)}@partner-revenue-labs.pages.dev`;
+    const uid = `prl-${Date.now()}-${Math.random().toString(36).slice(2, 11)}@partner-revenue-labs.pages.dev`;
 
     const icsContent = [
       'BEGIN:VCALENDAR',
@@ -209,7 +232,7 @@ export async function onRequestPost(context) {
       `DESCRIPTION:${meetingDesc}`,
       'LOCATION:Google Meet (https://meet.google.com/prl-discovery)',
       'ORGANIZER;CN=Partner Revenue Labs:mailto:partners@partnerrevenuelabs.com',
-      `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=${name}:mailto:${email}`,
+      `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN=${safeName}:mailto:${safeEmail}`,
       'STATUS:CONFIRMED',
       'BEGIN:VALARM',
       'TRIGGER:-PT15M',
@@ -220,7 +243,7 @@ export async function onRequestPost(context) {
       'END:VCALENDAR',
     ].join('\r\n');
 
-    const icsBase64 = btoa(unescape(encodeURIComponent(icsContent)));
+    const icsBase64 = toBase64(icsContent);
     const icsDataUri = `data:text/calendar;charset=utf-8;base64,${icsBase64}`;
 
     // Optional: Send email via Resend API if RESEND_API_KEY is configured
@@ -240,10 +263,10 @@ export async function onRequestPost(context) {
               <div style="font-family: -apple-system, sans-serif; max-width: 560px; margin: 0 auto; padding: 24px; background: #FAF9F5; border-radius: 16px; border: 1px solid #E8E6DF;">
                 <div style="background: #D92D20; color: white; width: 32px; height: 32px; border-radius: 6px; text-align: center; line-height: 32px; font-weight: bold; font-size: 13px;">PRL</div>
                 <h2 style="color: #121316; margin-top: 16px;">Strategy Session Confirmed</h2>
-                <p style="color: #555; line-height: 1.5;">Hi ${name}, your 15-minute discovery session with Partner Revenue Labs has been scheduled.</p>
+                <p style="color: #555; line-height: 1.5;">Hi ${escapeHtml(name)}, your 15-minute discovery session with Partner Revenue Labs has been scheduled.</p>
                 <div style="background: white; padding: 16px; border-radius: 12px; margin: 20px 0; border: 1px solid #EEE;">
                   <p style="margin: 0 0 8px 0; font-weight: bold; color: #121316;">Date &amp; Time: ${displayDate} at ${displayTime} PT</p>
-                  <p style="margin: 0 0 8px 0; color: #555;">Topic: ${topic || 'Affiliate & Media Scaling'}</p>
+                  <p style="margin: 0 0 8px 0; color: #555;">Topic: ${escapeHtml(topic || 'Affiliate & Media Scaling')}</p>
                   <p style="margin: 0; color: #8CA388; font-weight: bold;">Meeting: <a href="https://meet.google.com/prl-discovery" style="color: #8CA388;">Google Meet Link</a></p>
                 </div>
                 <p style="color: #888; font-size: 12px;">A calendar invitation is attached. You can also add it from the confirmation screen.</p>

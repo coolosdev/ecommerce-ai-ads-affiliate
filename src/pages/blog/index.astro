@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 
 const title = "Insights";
 const description = "Insights, breakdowns, and case studies on omnichannel marketing, live shopping, and marketplace growth.";
-const canonical = "https://yourdomain.com/blog";
+const canonical = "https://partner-revenue-labs.pages.dev/blog";
 
 const posts = await getCollection("blog");
 const sorted = posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
@@ -37,7 +37,7 @@ const rest = sorted.filter((p) => p.slug !== featured?.slug);
       <h2>Latest Insights</h2>
       <div class="posts-grid">
         {rest.map((post) => (
-          <article class="post-card" key={post.slug}>
+          <article class="post-card">
             <div class="post-card-accent"></div>
             {post.data.heroImage && (
               <div class="post-card-image">

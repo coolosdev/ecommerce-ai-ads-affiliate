@@ -12,7 +12,7 @@ export interface Props {
 const {
   title = "Partner Revenue Labs",
   description = "Revenue-focused guides and tools for ecommerce brands using AI in ads and analytics.",
-  canonical = "https://yourdomain.com/",
+  canonical = "https://partner-revenue-labs.pages.dev/",
   ogImage,
   schema,
 } = Astro.props;
@@ -43,14 +43,14 @@ const {
         <nav class="nav">
           <a href="/services">Services</a>
           <a href="/#tech">Technology <span class="nav-badge">New</span></a>
-          <a href="/#case-studies">Case Studies</a>
+          <a href="/blog">Case Studies</a>
           <a href="/#calculator">ROI Model</a>
           <a href="/about">About</a>
         </nav>
       </div>
       <div class="header-actions">
         <a href="/contact" class="client-portal-link">Client Portal</a>
-        <a href="#" onclick="openDualModal('qual'); return false;" class="header-cta">
+        <a href="#" data-open-modal="qual" class="header-cta">
           <span>Request Growth Audit</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
@@ -68,15 +68,15 @@ const {
               <span class="dual-brand-sub">LABS</span>
             </div>
           </div>
-          <button onclick="closeDualModal()" class="dual-modal-close">✕</button>
+          <button id="dual-modal-close" class="dual-modal-close">✕</button>
         </div>
 
         <div class="dual-modal-tabs">
-          <button id="modal-tab-call" onclick="switchModalTab('call')" class="dual-tab dual-tab--active">
+          <button type="button" id="modal-tab-call" class="dual-tab dual-tab--active">
             <svg class="dual-tab-icon dual-tab-icon--call" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
             <span>15-Min Strategy Call</span>
           </button>
-          <button id="modal-tab-qual" onclick="switchModalTab('qual')" class="dual-tab">
+          <button type="button" id="modal-tab-qual" class="dual-tab">
             <svg class="dual-tab-icon dual-tab-icon--qual" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             <span>48h Brand Qual Audit</span>
           </button>
@@ -119,43 +119,43 @@ const {
               <span class="dual-slot-tag">⚡ Instant Confirmation</span>
             </div>
             <div class="dual-slots" id="slots-container">
-              <button type="button" onclick="selectSlot(this, 'Tomorrow', '10:00 AM')" class="dual-slot dual-slot--selected">
+              <button type="button" data-slot-date="Tomorrow" data-slot-time="10:00 AM" class="dual-slot dual-slot--selected">
                 <div>Tomorrow</div>
                 <div class="dual-slot-time">10:00 AM</div>
               </button>
-              <button type="button" onclick="selectSlot(this, 'Tomorrow', '2:30 PM')" class="dual-slot">
+              <button type="button" data-slot-date="Tomorrow" data-slot-time="2:30 PM" class="dual-slot">
                 <div>Tomorrow</div>
                 <div class="dual-slot-time">2:30 PM</div>
               </button>
-              <button type="button" onclick="selectSlot(this, 'Friday', '11:15 AM')" class="dual-slot">
+              <button type="button" data-slot-date="Friday" data-slot-time="11:15 AM" class="dual-slot">
                 <div>Friday</div>
                 <div class="dual-slot-time">11:15 AM</div>
               </button>
-              <button type="button" onclick="selectSlot(this, 'Friday', '4:00 PM')" class="dual-slot">
+              <button type="button" data-slot-date="Friday" data-slot-time="4:00 PM" class="dual-slot">
                 <div>Friday</div>
                 <div class="dual-slot-time">4:00 PM</div>
               </button>
             </div>
           </div>
 
-          <form onsubmit="handleCallSubmit(event)" class="dual-form" id="booking-form">
+          <form class="dual-form" id="booking-form">
             <input type="hidden" id="selected-date" value="Tomorrow" />
             <input type="hidden" id="selected-time" value="10:00 AM" />
 
             <div class="dual-form-row">
               <div class="dual-form-field">
                 <label class="dual-form-label">Your Name</label>
-                <input type="text" id="call-name" required placeholder="Jordan Blake" value="Jordan Blake" />
+                <input type="text" id="call-name" required placeholder="Jordan Blake" autocomplete="name" />
               </div>
               <div class="dual-form-field">
                 <label class="dual-form-label">Work Email</label>
-                <input type="email" id="call-email" required placeholder="jordan@brand.com" value="jordan@brand.com" />
+                <input type="email" id="call-email" required placeholder="jordan@brand.com" autocomplete="email" />
               </div>
             </div>
 
             <div class="dual-form-field">
               <label class="dual-form-label">Brand URL (Optional)</label>
-              <input type="text" id="call-brand" placeholder="https://yourbrand.com" value="https://athleticapparel.com" />
+              <input type="text" id="call-brand" placeholder="https://yourbrand.com" autocomplete="url" />
             </div>
 
             <button type="submit" id="call-submit-btn" class="dual-btn dual-btn--primary">
@@ -185,7 +185,7 @@ const {
             <p class="dual-qual-sub">We analyze your current attribution, competitor publisher footprint, and project net incremental ROAS.</p>
           </div>
 
-          <form onsubmit="handleQualSubmit(event)" class="dual-form" id="qual-form">
+          <form class="dual-form" id="qual-form">
             <div class="dual-form-field">
               <label class="dual-form-label">Brand Monthly Revenue Range</label>
               <select id="qual-rev" class="dual-input">
@@ -198,17 +198,17 @@ const {
             <div class="dual-form-row">
               <div class="dual-form-field">
                 <label class="dual-form-label">Full Name</label>
-                <input type="text" id="qual-name" required placeholder="Jordan Blake" value="Jordan Blake" />
+                <input type="text" id="qual-name" required placeholder="Jordan Blake" autocomplete="name" />
               </div>
               <div class="dual-form-field">
                 <label class="dual-form-label">Work Email</label>
-                <input type="email" id="qual-email" required placeholder="jordan@brand.com" value="jordan@brand.com" />
+                <input type="email" id="qual-email" required placeholder="jordan@brand.com" autocomplete="email" />
               </div>
             </div>
 
             <div class="dual-form-field">
               <label class="dual-form-label">Brand Store URL / Website</label>
-              <input type="text" id="qual-brand" required placeholder="https://yourbrand.com" value="https://athleticapparel.com" />
+              <input type="text" id="qual-brand" required placeholder="https://yourbrand.com" autocomplete="url" />
             </div>
 
             <div class="dual-form-field">
@@ -258,30 +258,41 @@ const {
     <script>
       // Dual B2B Modal: Open-source 15-min scheduler + 48h brand qual audit
       (function () {
-        window.openDualModal = function (tab) {
-          var modal = document.getElementById('dual-modal');
+        function el<E extends HTMLElement = HTMLElement>(id: string): E | null {
+          return document.getElementById(id) as E | null;
+        }
+        function input(id: string): HTMLInputElement | null {
+          return el<HTMLInputElement>(id);
+        }
+        function select(id: string): HTMLSelectElement | null {
+          return el<HTMLSelectElement>(id);
+        }
+
+        function openDualModal(tab?: string) {
+          const modal = el('dual-modal');
           if (modal) {
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
           }
           switchModalTab(tab || 'call');
-        };
+        }
 
-        window.closeDualModal = function () {
-          var modal = document.getElementById('dual-modal');
+        function closeDualModal() {
+          const modal = el('dual-modal');
           if (modal) {
             modal.classList.add('hidden');
             document.body.style.overflow = '';
           }
-        };
+        }
 
-        window.switchModalTab = function (tab) {
-          var tabCallBtn = document.getElementById('modal-tab-call');
-          var tabQualBtn = document.getElementById('modal-tab-qual');
-          var contentCall = document.getElementById('modal-content-call');
-          var contentQual = document.getElementById('modal-content-qual');
+        function switchModalTab(tab: string) {
+          const tabCallBtn = el('modal-tab-call');
+          const tabQualBtn = el('modal-tab-qual');
+          const contentCall = el('modal-content-call');
+          const contentQual = el('modal-content-qual');
+          if (!tabCallBtn || !tabQualBtn || !contentCall || !contentQual) return;
 
-if (tab === 'call') {
+          if (tab === 'call') {
             tabCallBtn.classList.add('dual-tab--active');
             tabQualBtn.classList.remove('dual-tab--active');
             contentCall.classList.add('dual-tab-panel--active');
@@ -292,78 +303,101 @@ if (tab === 'call') {
             contentQual.classList.add('dual-tab-panel--active');
             contentCall.classList.remove('dual-tab-panel--active');
           }
-        };
+        }
 
-        window.selectSlot = function (btn, date, time) {
+        function selectSlot(btn: HTMLElement, date: string, time: string) {
           document.querySelectorAll('.dual-slot').forEach(function (b) {
             b.classList.remove('dual-slot--selected');
           });
           btn.classList.add('dual-slot--selected');
-          document.getElementById('selected-date').value = date;
-          document.getElementById('selected-time').value = time;
-        };
+          const selectedDate = input('selected-date');
+          const selectedTime = input('selected-time');
+          if (selectedDate) selectedDate.value = date;
+          if (selectedTime) selectedTime.value = time;
+        }
 
-        window.handleCallSubmit = async function (e) {
+        async function handleCallSubmit(e: Event) {
           e.preventDefault();
-          var btn = document.getElementById('call-submit-btn');
-          btn.disabled = true;
-          btn.querySelector('span').textContent = 'Scheduling...';
+          const btn = el<HTMLButtonElement>('call-submit-btn');
+          const btnText = btn ? btn.querySelector('span') : null;
+          if (btn) btn.disabled = true;
+          if (btnText) btnText.textContent = 'Scheduling...';
 
-          var payload = {
-            name: document.getElementById('call-name').value,
-            email: document.getElementById('call-email').value,
-            brandUrl: document.getElementById('call-brand').value,
-            dateStr: document.getElementById('selected-date').value,
-            timeStr: document.getElementById('selected-time').value,
-            topic: document.querySelector('input[name="call-topic"]:checked').value,
+          const nameEl = input('call-name');
+          const emailEl = input('call-email');
+          const brandEl = input('call-brand');
+          const dateEl = input('selected-date');
+          const timeEl = input('selected-time');
+          const topicEl = document.querySelector<HTMLInputElement>('input[name="call-topic"]:checked');
+
+          const payload = {
+            name: nameEl ? nameEl.value : '',
+            email: emailEl ? emailEl.value : '',
+            brandUrl: brandEl ? brandEl.value : '',
+            dateStr: dateEl ? dateEl.value : '',
+            timeStr: timeEl ? timeEl.value : '',
+            topic: topicEl ? topicEl.value : 'Affiliate Scale',
             timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
           };
 
-          var gcalUrl =
+          let gcalUrl =
             'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' +
             encodeURIComponent('PRL Discovery: ' + payload.name) +
             '&details=' + encodeURIComponent('15-Min Strategy Session') +
             '&location=https://meet.google.com/prl-discovery';
 
           try {
-            var res = await fetch('/api/book', {
+            const res = await fetch('/api/book', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(payload),
             });
-            var result = res.ok ? await res.json() : null;
+            const result: any = res.ok ? await res.json() : null;
             if (result && result.booking && result.booking.gcalUrl) {
               gcalUrl = result.booking.gcalUrl;
             }
             if (result && result.booking && result.booking.icsDataUri) {
-              document.getElementById('ics-link').href = result.booking.icsDataUri;
+              const icsLink = el<HTMLAnchorElement>('ics-link');
+              if (icsLink) icsLink.href = result.booking.icsDataUri;
             }
           } catch (err) {
             // Fallback: static preview without backend
           }
 
-          document.getElementById('gcal-link').href = gcalUrl;
-          document.getElementById('conf-slot').textContent =
-            payload.dateStr + ' at ' + payload.timeStr;
-          document.getElementById('booking-form').classList.add('hidden');
-          document.getElementById('call-success').classList.remove('hidden');
-          btn.querySelector('span').textContent = 'Confirmed! ✓';
-          btn.classList.remove('dual-btn--primary');
-          btn.style.background = 'var(--accent)';
-        };
+          const gcalLink = el<HTMLAnchorElement>('gcal-link');
+          if (gcalLink) gcalLink.href = gcalUrl;
+          const confSlot = el('conf-slot');
+          if (confSlot) confSlot.textContent = payload.dateStr + ' at ' + payload.timeStr;
+          const bookingForm = el('booking-form');
+          if (bookingForm) bookingForm.classList.add('hidden');
+          const callSuccess = el('call-success');
+          if (callSuccess) callSuccess.classList.remove('hidden');
+          if (btnText) btnText.textContent = 'Confirmed! ✓';
+          if (btn) {
+            btn.classList.remove('dual-btn--primary');
+            btn.style.background = 'var(--accent)';
+          }
+        }
 
-        window.handleQualSubmit = async function (e) {
+        async function handleQualSubmit(e: Event) {
           e.preventDefault();
-          var btn = document.getElementById('qual-submit-btn');
-          btn.disabled = true;
-          btn.querySelector('span').textContent = 'Analyzing Brand...';
+          const btn = el<HTMLButtonElement>('qual-submit-btn');
+          const btnText = btn ? btn.querySelector('span') : null;
+          if (btn) btn.disabled = true;
+          if (btnText) btnText.textContent = 'Analyzing Brand...';
 
-          var payload = {
-            name: document.getElementById('qual-name').value,
-            email: document.getElementById('qual-email').value,
-            brandUrl: document.getElementById('qual-brand').value,
-            revenueTier: document.getElementById('qual-rev').value,
-            bottleneck: document.getElementById('qual-bottleneck').value,
+          const nameEl = input('qual-name');
+          const emailEl = input('qual-email');
+          const brandEl = input('qual-brand');
+          const revEl = select('qual-rev');
+          const bottleneckEl = select('qual-bottleneck');
+
+          const payload = {
+            name: nameEl ? nameEl.value : '',
+            email: emailEl ? emailEl.value : '',
+            brandUrl: brandEl ? brandEl.value : '',
+            revenueTier: revEl ? revEl.value : '',
+            bottleneck: bottleneckEl ? bottleneckEl.value : '',
           };
 
           try {
@@ -376,10 +410,12 @@ if (tab === 'call') {
             // Continue to show success in demo/static mode
           }
 
-          document.getElementById('qual-form').classList.add('hidden');
-          document.getElementById('qual-success').classList.remove('hidden');
-          btn.querySelector('span').textContent = 'Audit Request Received ✓';
-        };
+          const qualForm = el('qual-form');
+          if (qualForm) qualForm.classList.add('hidden');
+          const qualSuccess = el('qual-success');
+          if (qualSuccess) qualSuccess.classList.remove('hidden');
+          if (btnText) btnText.textContent = 'Audit Request Received ✓';
+        }
 
         // Topic selector visuals
         document.querySelectorAll('.dual-topic').forEach(function (topic) {
@@ -391,8 +427,36 @@ if (tab === 'call') {
           });
         });
 
+        // Modal triggers (all pages)
+        document.querySelectorAll<HTMLElement>('[data-open-modal]').forEach(function (trigger) {
+          trigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            openDualModal(trigger.getAttribute('data-open-modal') || 'call');
+          });
+        });
+
+        // Slot selection
+        document.querySelectorAll<HTMLElement>('.dual-slot').forEach(function (slot) {
+          slot.addEventListener('click', function () {
+            selectSlot(slot, slot.getAttribute('data-slot-date') || '', slot.getAttribute('data-slot-time') || '');
+          });
+        });
+
+        // Form submissions + close button
+        el('dual-modal-close')?.addEventListener('click', function () {
+          closeDualModal();
+        });
+        el('modal-tab-call')?.addEventListener('click', function () {
+          switchModalTab('call');
+        });
+        el('modal-tab-qual')?.addEventListener('click', function () {
+          switchModalTab('qual');
+        });
+        el('booking-form')?.addEventListener('submit', handleCallSubmit);
+        el('qual-form')?.addEventListener('submit', handleQualSubmit);
+
         // Close modal on background click
-        var modal = document.getElementById('dual-modal');
+        const modal = el('dual-modal');
         if (modal) {
           modal.addEventListener('click', function (e) {
             if (e.target === modal) closeDualModal();
@@ -403,6 +467,7 @@ if (tab === 'call') {
         document.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') closeDualModal();
         });
+
       })();
     </script>
   </body>
@@ -422,6 +487,8 @@ if (tab === 'call') {
     --secondary: #faf9f5;
     --accent: #8ca388;
     --accent-hover: #6e876a;
+    --accent-strong: #6e876a;
+    --sage: #8ca388;
     --brand-red: #d92d20;
     --radius: 1.25rem;
     --shadow-sm: 0 1px 3px 0 rgba(18, 19, 22, 0.06);
@@ -636,6 +703,7 @@ if (tab === 'call') {
     .nav a {
       padding: 0.42rem 0.7rem;
       font-size: 0.7rem;
+      white-space: normal;
     }
     .header-inner {
       gap: 0.75rem;
@@ -967,7 +1035,9 @@ if (tab === 'call') {
     gap: 0.3rem;
   }
 
-  .dual-input {
+  .dual-input,
+  .dual-form input,
+  .dual-form select {
     width: 100%;
     box-sizing: border-box;
     padding: 0.62rem 0.8rem;
@@ -981,13 +1051,16 @@ if (tab === 'call') {
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
-  .dual-input:focus {
+  .dual-input:focus,
+  .dual-form input:focus,
+  .dual-form select:focus {
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px rgba(140, 163, 136, 0.2);
   }
 
-  .dual-input::placeholder {
+  .dual-input::placeholder,
+  .dual-form input::placeholder {
     color: var(--muted);
   }
 
@@ -1269,5 +1342,4 @@ if (tab === 'call') {
       grid-template-columns: 1fr;
     }
   }
-</style>
 </style>
