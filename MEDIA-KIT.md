@@ -20,7 +20,7 @@
 | **Top traffic sources** | Direct / Google organic (sitemap, robots) | Organic SEO, referral from affiliate networks, newsletter, partner CTAs |
 | **Geography** | US (65%), EU (20%), APAC (15%) | Same distribution, deeper US penetration |
 
-> **How we track** – Cloudflare Pages (free tier) → `dist/` static output → GitHub `main` pushes auto‑deploy via `wrangler pages deployment create dist --project-name=ecommerce-ai-ads-affiliate --branch=main`. Sitemap + robots.txt submitted to Google Search Console. Google Analytics not yet installed (cost‑saving on free tier).
+> **How we track** – Cloudflare Pages (free tier) → `dist/` static output → GitHub `main` pushes auto‑deploy via `wrangler pages deployment create dist --project-name=partner-revenue-labs --branch=main`. Sitemap + robots.txt submitted to Google Search Console. Google Analytics not yet installed (cost‑saving on free tier).
 
 ## 3. Content Strategy
 
@@ -73,7 +73,7 @@
 | Asset | Spec | Location |
 |-------|------|----------|
 | **Logo** | SVG, 180 × 180 px (used as `favicon.svg`) | `public/favicon.svg` |
-| **Website URL** | https://ecommerce-ai-ads-affiliate.pages.dev | Deployed on Cloudflare Pages |
+| **Website URL** | https://partner-revenue-labs.pages.dev | Deployed on Cloudflare Pages |
 | **Tagline** | “Actionable guides and tools for ecommerce brands using AI in ads and analytics.” | Appears on homepage & footer |
 | **Hero image** | Not yet – placeholder gradient background (linear‑gradient #1e293b → #475569) | `src/pages/index.astro` |
 | **OG image** | Currently canonical only; will add custom social card after first 3 posts | To be designed in Canva / Figma |
@@ -87,7 +87,7 @@ FOR IMMEDIATE RELEASE
 
 Partner Revenue Labs Launches – The First Curated Resource for AI‑Powered Ecommerce Advertising
 
-[City, Date] – Partner Revenue Labs (https://ecommerce-ai-ads-affiliate.pages.dev) goes live today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. 
+[City, Date] – Partner Revenue Labs (https://partner-revenue-labs.pages.dev) goes live today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. 
 
 Built and maintained by Coolosdev (OAuth‑authenticated GitHub & Cloudflare account), the site offers five cornerstone articles covering Google Performance Max, Meta Advantage+, Klaviyo, Triple Whale, Northbeam, Hyros, and a curated list of AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics). All content is static‑hosted on Cloudflare Pages for $0/month, with a roadmap to a free AI‑ad ROI calculator and a quarterly “State of AI in E‑commerce Ads” benchmark report.
 
@@ -123,9 +123,9 @@ For partnership inquiries, sponsorship opportunities, or to request a free media
 
 ## 11. Media Kit Download
 
-- **Full markdown**: `MEDIA-KIT.md` (this file) – view on GitHub or download via `https://raw.githubusercontent.com/coolosdev/ecommerce-ai-ads-affiliate/main/MEDIA-KIT.md`.
+- **Full markdown**: `MEDIA-KIT.md` (this file) – view on GitHub or download via `https://raw.githubusercontent.com/coolosdev/partner-revenue-labs/main/MEDIA-KIT.md`.
 - **Press‑ready PDF**: Generate with `pandoc MEDIA-KIT.md -o media-kit.pdf`.
-- **Assets zip**: `public/` assets (favicon.svg, robots.txt, sitemap‑index.xml) – `https://raw.githubusercontent.com/coolosdev/ecommerce-ai-ads-affiliate/main/public/`.
+- **Assets zip**: `public/` assets (favicon.svg, robots.txt, sitemap‑index.xml) – `https://raw.githubusercontent.com/coolosdev/partner-revenue-labs/main/public/`.
 
 ---
 

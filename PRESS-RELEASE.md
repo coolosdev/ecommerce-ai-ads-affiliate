@@ -6,19 +6,19 @@
 
 **Location:** 2026-11-16 workspace, United States
 
-**Partner Revenue Labs (https://ecommerce-ai-ads-affiliate.pages.dev) – The First Free, AI‑Curated Resource for AI‑Powered Ecommerce Advertising – Goes Live
+**Partner Revenue Labs (https://partner-revenue-labs.pages.dev) – The First Free, AI‑Curated Resource for AI‑Powered Ecommerce Advertising – Goes Live
 
 
 **Overview**
 
-Partner Revenue Labs (EAA) launches today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. Built and maintained by Coolosdev (OAuth‑authenticated GitHub & Cloudflare account), the site offers five cornerstone articles covering Google Performance Max, Meta Advantage+, Klaviyo, Triple Whale, Northbeam, Hyros, and a curated list of AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics).
+Partner Revenue Labs (PRL) launches today as the first free, Cloudflare‑powered resource dedicated exclusively to ecommerce brands using AI in ads and analytics. Built and maintained by Coolosdev (OAuth‑authenticated GitHub & Cloudflare account), the site offers five cornerstone articles covering Google Performance Max, Meta Advantage+, Klaviyo, Triple Whale, Northbeam, Hyros, and a curated list of AI ad tools (AdBuilder.ai, AdCreative.ai, Predis.ai, Supermetrics).
 
 **Key Points**
 
 - **Zero cost**: Runs entirely on Cloudflare free tier → $0/month recurring cost.
-- **Open‑source**: Repo hosted on GitHub (`coolosdev/ecommerce-ai-ads-affiliate`).
+- **Open‑source**: Repo hosted on GitHub (`coolosdev/partner-revenue-labs`).
 - **Niche focus**: Curated affiliate content only for AI in ads/analytics; no generic best‑of lists.
-- **Static performance**: Global edge cache, instant deploys on every `git push` via `wrangler pages deployment create dist --project-name=ecommerce-ai-ads-affiliate --branch=main`.
+- **Static performance**: Global edge cache, instant deploys on every `git push` via `wrangler pages deployment create dist --project-name=partner-revenue-labs --branch=main`.
 - **Revenue‑ready**: Affiliate commissions from Klaviyo, Triple Whale, Northbeam, Hyros, Google Performance Max, Meta Advantage+, plus future AI‑visibility tools.
 
 **Mission**
@@ -30,16 +30,16 @@ Partner Revenue Labs (EAA) launches today as the first free, Cloudflare‑powere
 - **Founded**: 2026 (beta launch)
 - **Founded by**: Coolosdev (coolosdev26@proton.me; Cloudflare Account ID: 41d04827c085112d57a6ae3271ca1153)
 - **Headquarters**: 2026‑11‑16 workspace, United States
-- **Website**: https://ecommerce-ai-ads-affiliate.pages.dev
-- **GitHub**: https://github.com/coolosdev/ecommerce-ai-ads-affiliate
-- **Cloudflare Pages**: https://ecommerce-ai-ads-affiliate.pages.dev
+- **Website**: https://partner-revenue-labs.pages.dev
+- **GitHub**: https://github.com/coolosdev/partner-revenue-labs
+- **Cloudflare Pages**: https://partner-revenue-labs.pages.dev
 
 **Available Assets**
 
-- **Full media kit**: https://raw.githubusercontent.com/coolosdev/ecommerce-ai-ads-affiliate/main/MEDIA-KIT.md (markdown)
+- **Full media kit**: https://raw.githubusercontent.com/coolosdev/partner-revenue-labs/main/MEDIA-KIT.md (markdown)
 - **Press‑ready PDF**: Generate with `pandoc MEDIA-KIT.md -o media-kit.pdf`
-- **Website screenshots**: https://raw.githubusercontent.com/coolosdev/ecommerce-ai-ads-affiliate/main/dist/index.html (static exports)
-- **Social assets**: favicon.svg, robots.txt, sitemap‑index.xml – `https://raw.githubusercontent.com/coolosdev/ecommerce-ai-ads-affiliate/main/public/`
+- **Website screenshots**: https://raw.githubusercontent.com/coolosdev/partner-revenue-labs/main/dist/index.html (static exports)
+- **Social assets**: favicon.svg, robots.txt, sitemap‑index.xml – `https://raw.githubusercontent.com/coolosdev/partner-revenue-labs/main/public/`
 
 **Contact**
 
